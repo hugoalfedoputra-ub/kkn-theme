@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 </script>
 
 <script>
@@ -40,7 +40,7 @@ export default {
 </script>
 
 <template>
-  <div>Hello, world! <br />Here is a message from our API:</div>
+  <!-- <div>Hello, world! <br />Here is a message from our API:</div>
   <div>{{ data }}</div>
   <div v-if="error.length != 0">{{ error }}</div>
   <a href="https://blitar-butun.desa.id/siteman" rel="noopener noreferrer" target="_blank"
@@ -58,7 +58,7 @@ export default {
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
-  </header>
+  </header> -->
 
   <RouterView />
 </template>
