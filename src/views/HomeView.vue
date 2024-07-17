@@ -1,6 +1,19 @@
 <script setup>
 import NavBar from '../components/NavBar.vue'
-// import InteractiveMap from '../components/InteractiveMap.vue'
+import InteractiveMap from '../components/InteractiveMap.vue'
+import HomePageArticleCard from '../components/HomePageArticleCard.vue'
+import Footer from '../components/Footer.vue'
+
+const articles = [
+  { title: 'Kerja Bakti', date: '13 Juni 2024' },
+  { title: 'Bantuan Untuk Anak-Anak di Papua', date: '13 Juni 2024' },
+  { title: 'Kegiatan Susruk Wangan', date: '13 Juni 2024' },
+  { title: 'Pengecoran Jalan Kabupaten di Dusun Baos', date: '13 Juni 2024' },
+  {
+    title: 'Penyaluran Dana Bantuan Langsung Tunai Dana Desa Bulan April-Mei 2024',
+    date: '13 Juni 2024'
+  }
+]
 </script>
 
 <template>
@@ -32,24 +45,24 @@ import NavBar from '../components/NavBar.vue'
       </div>
     </div>
     <div
-      class="flex flex-col justify-center px-5 py-10 w-full text-4xl font-bold text-center text-orange-400 bg-emerald-900 max-md:max-w-full"
+      class="flex flex-col justify-center px-5 py-10 w-full text-4xl font-bold text-center text-yellow-primary bg-emerald-900 max-md:max-w-full"
     >
       <div class="self-center">APARATUR DESA</div>
       <img loading="lazy" srcSet="..." class="mt-10 w-full aspect-[2.78] max-md:max-w-full" />
     </div>
     <div
-      class="justify-end md:px-10 lg:px-20 py-16 w-full bg-white-secondary max-md:px-5 max-md:max-w-full"
+      class="justify-end md:px-10 lg:px-20 py-0 md:py-10 w-full bg-white-secondary max-md:px-5 max-md:max-w-full"
     >
       <div class="flex gap-5 max-md:flex-col max-md:gap-0">
-        <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+        <div class="flex flex-col px-10 md:items-center w-6/12 md:px-0 max-md:ml-0 max-md:w-full">
           <div
-            class="flex flex-col justify-end items-start md:px-10 lg:px-20 py-20 mt-1.5 text-base font-semibold text-black max-md:px-5 max-md:mt-10"
+            class="flex flex-col justify-center items-start md:px-10 lg:px-20 py-20 mt-1.5 text-base font-semibold text-black max-md:px-5 max-md:mt-10"
           >
-            <div class="text-4xl font-bold text-start text-orange-400">Lokasi Desa</div>
+            <div class="text-4xl font-bold text-start text-yellow-primary">Lokasi Desa</div>
             <div class="mt-12 text-2xl font-bold max-md:mt-10">Desa Butun</div>
             <div class="mt-2.5">Kec. Gandusari, Kab. Blitar</div>
             <div class="mt-2.5">Provinsi Jawa Timur</div>
-            <div class="flex gap-1 md:gap-2.5 p-4 mt-8 text-start bg-orange-400 rounded-2xl">
+            <div class="flex gap-1 md:gap-2.5 p-4 mt-8 text-start bg-yellow-primary rounded-2xl">
               <div class="text-xs md:text-md lg:text-[0.8rem] my-auto">Cek Selengkapnya</div>
               <img
                 loading="lazy"
@@ -61,16 +74,18 @@ import NavBar from '../components/NavBar.vue'
         </div>
         <div class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
           <div
-            class="flex flex-col grow justify-center px-6 py-10 max-md:px-5 max-md:mt-10 max-md:max-w-full"
+            class="flex grow justify-center items-center px-6 py-10 max-md:px-5 max-md:mt-10 max-md:max-w-full"
           >
-            <!-- <InteractiveMap loading="lazy" /> -->
-            <!-- <img loading="lazy" srcSet="..." class="w-full aspect-[1.16] max-md:max-w-full" /> -->
+            <InteractiveMap
+              loading="lazy"
+              class="w-[40rem] h-[30rem] md:w-[25rem] md:h-[20rem] lg:w-[25rem] lg:h-[20rem] xl:w-[40rem] xl:h-[30rem]"
+            />
           </div>
         </div>
       </div>
     </div>
-    <div class="flex flex-col px-2.5 py-10 w-full bg-white max-md:max-w-full">
-      <div class="self-center text-4xl font-bold text-center text-orange-400">
+    <div class="flex flex-col text-start px-2.5 py-10 w-full bg-white max-md:max-w-full">
+      <div class="self-center text-4xl font-bold text-center text-yellow-primary">
         Berita Desa Terbaru
       </div>
       <div class="mt-10 max-md:max-w-full">
@@ -78,118 +93,45 @@ import NavBar from '../components/NavBar.vue'
           <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
             <div class="flex flex-col px-8 py-5 max-md:px-5 max-md:max-w-full">
               <div class="flex flex-col justify-center bg-black rounded-3xl max-md:max-w-full">
-                <img loading="lazy" srcSet="..." class="w-full aspect-[1.85] max-md:max-w-full" />
+                <img
+                  loading="lazy"
+                  src="../assets/images/pembangunan_desa.jpg"
+                  class="w-full aspect-[1.85] max-md:max-w-full"
+                />
               </div>
               <div
                 class="flex flex-col justify-center self-center px-2.5 mt-5 max-w-full text-center w-[572px]"
               >
-                <div class="text-2xl font-bold text-black max-md:max-w-full">
+                <div class="text-2xl text-start font-bold text-black max-md:max-w-full">
                   Pembangunan Yang Bersumber Dana Desa 2024
                 </div>
                 <div
-                  class="flex gap-0 justify-center self-end mt-2.5 text-sm font-semibold text-orange-400"
+                  class="flex gap-0 justify-center self-end mt-2.5 text-sm font-semibold text-yellow-primary"
                 >
                   <img
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/b71cf9e5bb2d8659573ea80bbded8c77f1b09b6c12103d0d268dd02ed0045210?"
-                    class="shrink-0 w-5 aspect-square"
+                    class="shrink-0 w-5 aspect-square mr-2"
                   />
                   <div>13 Juni 2024</div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-            <div class="flex flex-col grow p-5 max-md:max-w-full">
-              <div
-                class="flex flex-col justify-center items-start px-5 py-2.5 text-center bg-gray-200 rounded-3xl border-b-2 border-l-2 border-black border-solid shadow-sm max-md:max-w-full"
-              >
-                <div class="text-xl font-bold text-black">Kerja Bakti di Makam Dusun</div>
-                <div class="flex gap-0 justify-center mt-2.5 text-sm font-semibold text-orange-400">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/4d49c240900e1d801da8ad3d4a47d42236a91bbaa83a3c6c64180c74d1304612?"
-                    class="shrink-0 w-5 aspect-square"
-                  />
-                  <div>13 Juni 2024</div>
-                </div>
-              </div>
-              <div
-                class="flex flex-col justify-center items-start px-5 py-2.5 mt-5 text-center bg-gray-200 rounded-3xl border-b-2 border-l-2 border-black border-solid shadow-sm max-md:max-w-full"
-              >
-                <div class="text-xl font-bold text-black">Bantuan Untuk Anak-Anak di Papua</div>
-                <div class="flex gap-0 justify-center mt-2.5 text-sm font-semibold text-orange-400">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/4d49c240900e1d801da8ad3d4a47d42236a91bbaa83a3c6c64180c74d1304612?"
-                    class="shrink-0 w-5 aspect-square"
-                  />
-                  <div>13 Juni 2024</div>
-                </div>
-              </div>
-              <div
-                class="flex flex-col justify-center items-start px-5 py-2.5 mt-5 text-center bg-gray-200 rounded-3xl border-b-2 border-l-2 border-black border-solid shadow-sm max-md:max-w-full"
-              >
-                <div class="text-xl font-bold text-black">Kegiatan Susruk Wangan</div>
-                <div class="flex gap-0 justify-center mt-2.5 text-sm font-semibold text-orange-400">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/4d49c240900e1d801da8ad3d4a47d42236a91bbaa83a3c6c64180c74d1304612?"
-                    class="shrink-0 w-5 aspect-square"
-                  />
-                  <div>13 Juni 2024</div>
-                </div>
-              </div>
-              <div
-                class="flex flex-col justify-center items-start px-5 py-2.5 mt-5 text-center bg-gray-200 rounded-3xl border-b-2 border-l-2 border-black border-solid shadow-sm max-md:max-w-full"
-              >
-                <div class="text-xl font-bold text-black max-md:max-w-full">
-                  Pengecoran Jalan Kabupaten di Dusun Baos
-                </div>
-                <div class="flex gap-0 justify-center mt-2.5 text-sm font-semibold text-orange-400">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/4d49c240900e1d801da8ad3d4a47d42236a91bbaa83a3c6c64180c74d1304612?"
-                    class="shrink-0 w-5 aspect-square"
-                  />
-                  <div>13 Juni 2024</div>
-                </div>
-              </div>
-              <div
-                class="flex flex-col justify-center items-start p-5 mt-5 bg-gray-200 rounded-3xl border-b-2 border-l-2 border-black border-solid shadow-sm max-md:max-w-full"
-              >
-                <div class="text-xl font-bold text-black max-md:max-w-full">
-                  Penyaluran Dana Bantuan Langsung Tunai Dana Desa <br />Bulan April-Mei 2024
-                </div>
-                <div
-                  class="flex gap-0 justify-center mt-2.5 text-sm font-semibold text-center text-orange-400"
-                >
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/b71cf9e5bb2d8659573ea80bbded8c77f1b09b6c12103d0d268dd02ed0045210?"
-                    class="shrink-0 w-5 aspect-square"
-                  />
-                  <div>13 Juni 2024</div>
-                </div>
-              </div>
+          <div class="flex flex-col ml-0 w-6/12 max-md:ml-0 max-md:w-full">
+            <div class="flex flex-col gap-2 grow p-5 md:p-2 max-md:max-w-full">
+              <HomePageArticleCard
+                v-for="article in articles"
+                :key="article.title"
+                :imageCover="true"
+                :title="article.title"
+                :date="article.date"
+              />
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="px-20 py-7 w-full bg-emerald-900 max-md:px-5 max-md:max-w-full">
-      <div class="flex gap-5 max-md:flex-col max-md:gap-0">
-        <div class="flex flex-col w-[70%] max-md:ml-0 max-md:w-full">
-          <div class="text-xl font-semibold text-white max-md:mt-10 max-md:max-w-full">
-            ©2024 Pemerintah desa Butun
-          </div>
-        </div>
-        <div class="flex flex-col ml-5 w-[30%] max-md:ml-0 max-md:w-full">
-          <div class="text-xl font-semibold text-white max-md:mt-10">
-            E-mail: butun@kominfo.go.id
-          </div>
-        </div>
-      </div>
-    </div>
+    <Footer />
   </div>
 </template>
