@@ -24,15 +24,15 @@ const mobileMenuOpen = ref(false)
         class="flex items-center justify-between mx-3 md:mx-8 lg:mx-4 lg:justify-arounds p-1 lg:px-8 lg:gap-10 xl:gap-20"
         aria-label="Global"
       >
-        <div class="">
-          <span class="sr-only">Your Company</span>
+        <div class="my-1">
+          <span class="sr-only">Desa Butun</span>
           <a href="" class="flex gap-2 lg:gap-4 justify-center items-center">
             <img
               loading="lazy"
               src="../assets/images/Blitar__sid__irtNbnZ.png"
               class="shrink-0 aspect-square w-10 h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 mb-2 my-1 lg:mb-3"
             />
-            <div class="flex flex-col">
+            <div class="flex flex-col mt-1">
               <div class="text-xs md:text-sm xl:text-lg font-bold text-white">Butun</div>
               <div
                 class="text-[0.6rem] md:text-[0.8rem] xl:text-md font-semibold text-yellow-primary"
@@ -107,15 +107,15 @@ const mobileMenuOpen = ref(false)
                   v-for="item in navigation"
                   :key="item.name"
                   :href="item.href"
-                  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-50"
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-yellow-primary"
                   >{{ item.name }}</a
                 >
               </div>
               <div class="py-6">
                 <a
                   href="#"
-                  class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >Log in</a
+                  class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-yellow-primary"
+                  >Login Admin</a
                 >
               </div>
             </div>

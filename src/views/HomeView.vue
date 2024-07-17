@@ -1,5 +1,6 @@
 <script setup>
 import NavBar from '../components/NavBar.vue'
+// import InteractiveMap from '../components/InteractiveMap.vue'
 </script>
 
 <template>
@@ -25,8 +26,8 @@ import NavBar from '../components/NavBar.vue'
             class="self-center max-w-full aspect-square w-[100px] md:w-[120px] lg:w-[140px]"
           />
           <div class="mt-5 text-4xl font-extrabold text-center max-md:text-4xl">Butun</div>
-          <div class="text-2xl self-center">Kec. Gandusari, Kab. Blitar</div>
-          <div class="text-2xl self-center">Provinsi Jawa Timur</div>
+          <div class="text-xl md:text-2xl self-center">Kec. Gandusari, Kab. Blitar</div>
+          <div class="text-xl md:text-2xl self-center">Provinsi Jawa Timur</div>
         </div>
       </div>
     </div>
@@ -36,22 +37,24 @@ import NavBar from '../components/NavBar.vue'
       <div class="self-center">APARATUR DESA</div>
       <img loading="lazy" srcSet="..." class="mt-10 w-full aspect-[2.78] max-md:max-w-full" />
     </div>
-    <div class="justify-end px-20 py-16 w-full bg-gray-200 max-md:px-5 max-md:max-w-full">
+    <div
+      class="justify-end md:px-10 lg:px-20 py-16 w-full bg-white-secondary max-md:px-5 max-md:max-w-full"
+    >
       <div class="flex gap-5 max-md:flex-col max-md:gap-0">
         <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
           <div
-            class="flex flex-col justify-end items-start px-20 py-20 mt-1.5 text-base font-semibold text-black max-md:px-5 max-md:mt-10"
+            class="flex flex-col justify-end items-start md:px-10 lg:px-20 py-20 mt-1.5 text-base font-semibold text-black max-md:px-5 max-md:mt-10"
           >
-            <div class="text-4xl font-bold text-center text-orange-400">Lokasi Desa</div>
+            <div class="text-4xl font-bold text-start text-orange-400">Lokasi Desa</div>
             <div class="mt-12 text-2xl font-bold max-md:mt-10">Desa Butun</div>
             <div class="mt-2.5">Kec. Gandusari, Kab. Blitar</div>
             <div class="mt-2.5">Provinsi Jawa Timur</div>
-            <div class="flex gap-2.5 p-4 mt-8 text-center bg-orange-400 rounded-3xl">
-              <div class="my-auto">Cek Selengkapnya</div>
+            <div class="flex gap-1 md:gap-2.5 p-4 mt-8 text-start bg-orange-400 rounded-2xl">
+              <div class="text-xs md:text-md lg:text-[0.8rem] my-auto">Cek Selengkapnya</div>
               <img
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/b60966f464887acb57afbe0e3ee24c56de8400c4a2a5e1a822049a5817248edf?"
-                class="shrink-0 w-6 aspect-square"
+                class="shrink-0 w-5 aspect-square"
               />
             </div>
           </div>
@@ -60,7 +63,8 @@ import NavBar from '../components/NavBar.vue'
           <div
             class="flex flex-col grow justify-center px-6 py-10 max-md:px-5 max-md:mt-10 max-md:max-w-full"
           >
-            <img loading="lazy" srcSet="..." class="w-full aspect-[1.16] max-md:max-w-full" />
+            <!-- <InteractiveMap loading="lazy" /> -->
+            <!-- <img loading="lazy" srcSet="..." class="w-full aspect-[1.16] max-md:max-w-full" /> -->
           </div>
         </div>
       </div>
