@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="map flex-1 flex items-center justify-center p-4">
-      <img class="max-w-full max-h-96 rounded-lg" src="./assets/images/map.jpg" alt="Map of Blitar" />
+      <img class="max-w-full max-h-96 rounded-lg" src="../assets/images/map.jpg" alt="Map of Blitar" />
     </div>
   </div>
 </template>

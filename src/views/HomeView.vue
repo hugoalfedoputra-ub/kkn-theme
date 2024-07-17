@@ -6,6 +6,5 @@ import NavBar from '../components/NavBar.vue'
 <template>
   <main>
     <NavBar />
-    <TheWelcome />
   </main>
 </template>
