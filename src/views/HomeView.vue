@@ -47,7 +47,7 @@ const articles = [
     <div
       class="flex flex-col justify-center px-5 py-10 w-full text-4xl font-bold text-center text-yellow-primary bg-emerald-900 max-md:max-w-full"
     >
-      <div class="self-center">APARATUR DESA</div>
+      <div class="self-center">Aparatur Desa</div>
       <img loading="lazy" srcSet="..." class="mt-10 w-full aspect-[2.78] max-md:max-w-full" />
     </div>
     <div
@@ -88,15 +88,15 @@ const articles = [
       <div class="self-center text-4xl font-bold text-center text-yellow-primary">
         Berita Desa Terbaru
       </div>
-      <div class="mt-10 max-md:max-w-full">
+      <div class="mt-10 max-w-full lg:mx-10 xl:mx-10">
         <div class="flex gap-5 max-md:flex-col max-md:gap-0">
-          <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+          <div class="flex justify-center w-6/12 max-md:ml-0 max-md:w-full">
             <div class="flex flex-col px-8 py-5 max-md:px-5 max-md:max-w-full">
-              <div class="flex flex-col justify-center bg-black rounded-3xl max-md:max-w-full">
+              <div class="flex justify-center items-center bg-black rounded-3xl h-auto max-w-full">
                 <img
                   loading="lazy"
                   src="../assets/images/pembangunan_desa.jpg"
-                  class="w-full aspect-[1.85] max-md:max-w-full"
+                  class="rounded-3xl"
                 />
               </div>
               <div
