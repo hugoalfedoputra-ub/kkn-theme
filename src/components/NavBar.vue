@@ -6,10 +6,12 @@ import SearchIcon from '../components/icons/IconSearch.vue'
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'Profile Desa', href: '/profile-desa' },
+  { name: 'Profile Desa', href: '/profile-desa/wilayah' },
   { name: 'Pemerintahan Desa', href: '/pemerintahan-desa' },
   { name: 'Berita Desa', href: '/berita-desa' },
-  { name: 'Statistik', href: '/statistik' }
+  { name: 'Statistik', href: '/statistik' },
+  { name: 'Peta', href: '/peta-desa'},
+  { name: 'Kontak', href: '/kontak'}
 ]
 
 const mobileMenuOpen = ref(false)

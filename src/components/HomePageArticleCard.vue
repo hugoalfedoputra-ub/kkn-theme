@@ -7,13 +7,17 @@ defineProps({
   date: {
     type: String,
     required: true
+  },
+  href: {
+    type: String,
+    required: true
   }
 })
 </script>
 
 <template>
   <div class="font-primary">
-    <a href="">
+    <a :href="href">
       <div
         class="flex flex-col justify-center items-start p-5 text-start bg-gray-200 rounded-3xl border-b-2 border-l-2 border-black border-solid shadow-md max-md:max-w-full"
       >

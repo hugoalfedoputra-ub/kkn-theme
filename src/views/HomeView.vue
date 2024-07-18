@@ -6,13 +6,13 @@ import FooterComponent from '@/components/FooterComponent.vue'
 import IconCalenderSchedule from '@/components/icons/IconCalenderSchedule.vue'
 
 const articles = [
-  { title: 'Kerja Bakti', date: '13 Juni 2024' },
-  { title: 'Bantuan Untuk Anak-Anak di Papua', date: '13 Juni 2024' },
-  { title: 'Kegiatan Susruk Wangan', date: '13 Juni 2024' },
-  { title: 'Pengecoran Jalan Kabupaten di Dusun Baos', date: '13 Juni 2024' },
+  { title: 'Kerja Bakti', date: '13 Juni 2024', href: '' },
+  { title: 'Bantuan Untuk Anak-Anak di Papua', date: '13 Juni 2024', href: '' },
+  { title: 'Kegiatan Susruk Wangan', date: '13 Juni 2024', href: '' },
+  { title: 'Pengecoran Jalan Kabupaten di Dusun Baos', date: '13 Juni 2024', href: '' },
   {
     title: 'Penyaluran Dana Bantuan Langsung Tunai Dana Desa Bulan April-Mei 2024',
-    date: '13 Juni 2024'
+    date: '13 Juni 2024', href: ''
   }
 ]
 </script>
@@ -97,7 +97,7 @@ const articles = [
       Berita Desa Terbaru
     </div>
     <div class="mt-10 max-w-full lg:mx-10 xl:mx-10">
-      <div class="flex justify-center gap-5 max-md:flex-col max-md:gap-0">
+      <div class="flex justify-around gap-5 max-md:flex-col max-md:gap-0">
         <div class="flex justify-center w-2/5 max-md:ml-0 max-md:w-full">
           <div class="flex flex-col p-5 max-md:px-5 max-md:max-w-full">
             <div class="h-auto max-w-full">
@@ -125,6 +125,7 @@ const articles = [
               :key="article.title"
               :title="article.title"
               :date="article.date"
+              :href="article.href"
             />
           </div>
         </div>
