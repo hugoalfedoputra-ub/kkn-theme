@@ -6,7 +6,7 @@ import SearchIcon from '../components/icons/IconSearch.vue'
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'Profile Desa', href: '/profile-desa/wilayah' },
+  { name: 'Profile Desa', href: '/profile-desa' },
   { name: 'Pemerintahan Desa', href: '/pemerintahan-desa' },
   { name: 'Berita Desa', href: '/berita-desa' },
   { name: 'Statistik', href: '/statistik' },

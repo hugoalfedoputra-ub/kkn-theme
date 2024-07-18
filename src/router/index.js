@@ -18,12 +18,28 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },  
     {
-      path: '/profile-desa/wilayah',
-      name: 'wilayah',
+      path: '/profile-desa/profile',
+      name: 'profile',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/ProfileView.vue')
+    },
+    {
+      path: '/profile-desa/sejarah',
+      name: 'sejarah',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/SejarahView.vue')
+    },
+    {
+      path: '/profile-desa/visi-misi',
+      name: 'visi-misi',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/VisiMisiView.vue')
     },
   ]
 })
