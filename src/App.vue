@@ -17,24 +17,24 @@ export default {
     } else {
       url = import.meta.env.VITE_STAGING_API_URL
     }
-    fetch(url)
-      .then((response) => {
-        console.log(response)
-        if (!response.ok) {
-          this.error.push('Failed to fetch API response')
-        }
-        return response.json()
-      })
-      .then((data) => {
-        if (data.message == '') {
-          this.error.push('Data is an empty string')
-        }
-        this.data = data.message
-      })
-      .catch((error) => {
-        this.error.push(error)
-        console.log(error)
-      })
+    // fetch(url)
+    //   .then((response) => {
+    //     // console.log(response)
+    //     if (!response.ok) {
+    //       this.error.push('Failed to fetch API response')
+    //     }
+    //     return response.json()
+    //   })
+    //   .then((data) => {
+    //     if (data.message == '') {
+    //       this.error.push('Data is an empty string')
+    //     }
+    //     this.data = data.message
+    //   })
+    //   .catch((error) => {
+    //     this.error.push(error)
+    //     console.log(error)
+    //   })
   }
 }
 </script>

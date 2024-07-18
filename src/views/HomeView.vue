@@ -1,20 +1,56 @@
 <script setup>
-import NavBar from '@/components/NavBar.vue'
-import InteractiveMap from '@/components/InteractiveMap.vue'
-import HomePageArticleCard from '@/components/HomePageArticleCard.vue'
-import FooterComponent from '@/components/FooterComponent.vue'
-import IconCalenderSchedule from '@/components/icons/IconCalenderSchedule.vue'
+import axios from 'axios';
+import { ref, onMounted, computed } from 'vue';
 
-const articles = [
-  { title: 'Kerja Bakti', date: '13 Juni 2024', href: '' },
-  { title: 'Bantuan Untuk Anak-Anak di Papua', date: '13 Juni 2024', href: '' },
-  { title: 'Kegiatan Susruk Wangan', date: '13 Juni 2024', href: '' },
-  { title: 'Pengecoran Jalan Kabupaten di Dusun Baos', date: '13 Juni 2024', href: '' },
-  {
-    title: 'Penyaluran Dana Bantuan Langsung Tunai Dana Desa Bulan April-Mei 2024',
-    date: '13 Juni 2024', href: ''
+import NavBar from '@/components/NavBar.vue';
+import InteractiveMap from '@/components/InteractiveMap.vue';
+import HomePageArticleCard from '@/components/HomePageArticleCard.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
+import IconCalenderSchedule from '@/components/icons/IconCalenderSchedule.vue';
+
+const url = import.meta.env.VITE_BASE_API_URL
+const articles = ref([]);
+const articlesLoaded = ref(false)
+const articleIsLoading = ref(false)
+const error = ref(null);
+
+const latestArticle = computed(() => articles.value[0] || null)
+const articlesExceptLatest = computed(() => articles.value.slice(1))
+
+const fetchArticles = async (page = 1) => {
+  articleIsLoading.value = true
+  try {
+    const response = await axios.get(url + "artikel", {
+      params: {
+        page,
+      }
+    });
+    console.log(response.data.data)
+    articles.value = response.data.data
+  } catch(err) {
+    error.value = "Artikel Gagal Dimuat"
+  } finally {
+    articlesLoaded.value = true;
+    articleIsLoading.value = false;
   }
-]
+}
+
+const getFirstWord = (dateString) => {
+  return dateString.split(' ')[0];
+};
+
+const getImg = (img) => {
+  return "https://blitar-butun.desa.id/desa/upload/artikel/sedang_" + img; 
+}
+
+const getUrl = (id) => {
+  return "/artikel/" + id;
+}
+
+onMounted(() => {
+  console.log(`url : `, url)
+  fetchArticles()
+})
 </script>
 
 <template>
@@ -99,33 +135,39 @@ const articles = [
     <div class="mt-10 max-w-full lg:mx-10 xl:mx-10">
       <div class="flex justify-around gap-5 max-md:flex-col max-md:gap-0">
         <div class="flex justify-center w-2/5 max-md:ml-0 max-md:w-full">
+
+          <!-- Loading -->
+          <div v-if="articleIsLoading">
+              Loading yah bwang
+            </div>
+          
+          <!-- Latest Article  -->
           <div class="flex flex-col p-5 max-md:px-5 max-md:max-w-full">
             <div class="h-auto max-w-full">
-              <img loading="lazy" src="../assets/images/pembangunan_desa.jpg" class="rounded-3xl" />
+              <img v-if="latestArticle" :src="getImg(latestArticle.gambar)" loading="lazy" class="rounded-3xl" alt="Latest Article Image" />
             </div>
-            <div
-              class="flex flex-col justify-center self-center px-2.5 mt-5 max-w-full text-center"
-            >
-              <div class="text-xl text-start font-bold text-black max-md:max-w-full font-primary">
-                Pembangunan Yang Bersumber Dana Desa 2024
+            <div class="flex flex-col justify-center self-center px-2.5 mt-5 max-w-full text-center">
+              <div v-if="latestArticle" class="text-xl text-start font-bold text-black max-md:max-w-full font-primary">
+                {{ latestArticle.judul }}
               </div>
-              <div
-                class="flex gap-0 justify-center self-end mt-2.5 text-sm font-semibold text-yellow-primary"
-              >
+              <div class="flex gap-0 justify-center self-end mt-2.5 text-sm font-semibold text-yellow-primary">
                 <IconCalenderSchedule class="shrink-0 w-5 aspect-square mr-2" />
-                <div class="font-secondary">13 Juni 2024</div>
+                <div v-if="latestArticle" class="font-secondary">{{ getFirstWord(latestArticle.tgl_upload) }}</div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Articles -->
         <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
           <div class="flex flex-col gap-2 grow p-5 md:p-2 max-md:max-w-full">
             <HomePageArticleCard
+              v-if="articlesLoaded"
               v-for="article in articles"
-              :key="article.title"
-              :title="article.title"
-              :date="article.date"
-              :href="article.href"
+              :key="article.judul"
+              :title="article.judul"
+              :date="getFirstWord(article.tgl_upload)"
+              :href="getUrl(article.id)"
             />
           </div>
         </div>
