@@ -18,6 +18,7 @@ const articles = [
 </script>
 
 <template>
+<<<<<<< HEAD
   <NavBar />
   <div
     class="flex flex-col justify-center w-full text-3xl font-bold text-black bg-white max-md:max-w-full"
@@ -132,4 +133,9 @@ const articles = [
     </div>
   </div>
   <FooterComponent />
+=======
+  <main>
+    <NavBar />
+  </main>
+>>>>>>> 58d173dfddb41928d0394061bd582bf7df8f2975
 </template>

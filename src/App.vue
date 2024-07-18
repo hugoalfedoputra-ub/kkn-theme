@@ -1,44 +1,29 @@
+<template>
+  <div id="app">
+    <header>
+      <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
+      <div class="wrapper">
+        <nav>
+          <RouterLink to="/"></RouterLink>
+          <RouterLink to="/about"></RouterLink>
+        </nav>
+      </div>
+    </header>
+    <RouterView />
+  </div>
+</template>
+
 <script setup>
+<<<<<<< HEAD
 import { RouterView } from 'vue-router'
+=======
+import { RouterLink, RouterView } from 'vue-router'
+// import HelloWorld from './components/HelloWorld.vue'
+>>>>>>> 58d173dfddb41928d0394061bd582bf7df8f2975
 </script>
 
-<script>
-export default {
-  data() {
-    return {
-      data: '',
-      error: []
-    }
-  },
-  created() {
-    var url = ''
-    if (import.meta.env.MODE != 'production') {
-      url = import.meta.env.VITE_TEST_API_URL
-    } else {
-      url = import.meta.env.VITE_STAGING_API_URL
-    }
-    fetch(url)
-      .then((response) => {
-        console.log(response)
-        if (!response.ok) {
-          this.error.push('Failed to fetch API response')
-        }
-        return response.json()
-      })
-      .then((data) => {
-        if (data.message == '') {
-          this.error.push('Data is an empty string')
-        }
-        this.data = data.message
-      })
-      .catch((error) => {
-        this.error.push(error)
-        console.log(error)
-      })
-  }
-}
-</script>
 
+<<<<<<< HEAD
 <template>
   <!-- <div>Hello, world! <br />Here is a message from our API:</div>
   <div>{{ data }}</div>
@@ -49,19 +34,21 @@ export default {
   <h1 class="font-primary">Tes</h1>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+=======
+>>>>>>> 58d173dfddb41928d0394061bd582bf7df8f2975
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
 
+<<<<<<< HEAD
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
   </header> -->
+=======
+>>>>>>> 58d173dfddb41928d0394061bd582bf7df8f2975
 
-  <RouterView />
-</template>
+
 
 <!-- <style scoped>
 header {
