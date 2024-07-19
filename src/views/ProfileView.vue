@@ -55,7 +55,10 @@
       <h2 class="self-stretch mt-28 text-4xl font-bold text-center text-orange-400 max-md:mt-10 max-md:max-w-full">
         Peta Desa
       </h2>
-      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/45ece1ce4402e27a3f3c63b6bdc4e580a6d04078970fbdc2f45471cf1eecfc9c?apiKey=f1a9489e42624277a4277c6751b4869b&" class="mt-10 max-w-full aspect-[2.33] w-[906px]" alt="Peta Desa" />
+      <InteractiveMap
+            loading="lazy"
+            class="w-1/2 h-1/2 lg:w-[25rem] lg:h-[20rem] xl:w-[40rem] xl:h-[30rem] rounded-2xl"
+          />
     </section>
   </main>
   <FooterComponent />
@@ -65,22 +68,23 @@
 <script>
 import NavBar from '../components/NavBar.vue'
 import FooterComponent from '../components/FooterComponent.vue'
-
+import InteractiveMap from '../components/InteractiveMap.vue'
 
 export default {
   name: 'ProfileDesa',
   components:{
     NavBar,
+    InteractiveMap,
     FooterComponent
   },
   data(){
     return{
-      hWilayah:100,
-      hSawah:70,
-      hTegalan: 20,
-      dusun:5,
-      rw:17,
-      rt:60
+      hWilayah:41283,
+      hSawah:18290,
+      hTegalan: 7022,
+      dusun:4,
+      rw:8,
+      rt:28
     }
   },
   mounted() {
@@ -93,12 +97,15 @@ export default {
   },
   methods: {
     animateValue(ref, start, end, duration) {
+      const formatter = new Intl.NumberFormat('en-US');
       let startTimestamp = null;
       const step = (timestamp) => {
         if (!startTimestamp) {
-          startTimestamp = timestamp};
+          startTimestamp = timestamp
+        };
         const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        ref.innerText = Math.floor(progress * (end - start) + start);
+        const value = Math.floor(progress * (end - start) + start);
+        ref.innerText = formatter.format(value);
         if (progress < 1) {
           window.requestAnimationFrame(step);
         }
