@@ -15,7 +15,7 @@ const articleIsLoading = ref(false)
 const error = ref(null);
 
 const latestArticle = computed(() => articles.value[0] || null)
-const articlesExceptLatest = computed(() => articles.value.slice(1))
+// const articlesExceptLatest = computed(() => articles.value.slice(1))
 
 const fetchArticles = async (page = 1) => {
   articleIsLoading.value = true
@@ -161,8 +161,8 @@ onMounted(() => {
         <!-- Articles -->
         <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
           <div class="flex flex-col gap-2 grow p-5 md:p-2 max-md:max-w-full">
+            <!-- v-if="articlesLoaded" -->
             <HomePageArticleCard
-              v-if="articlesLoaded"
               v-for="article in articles"
               :key="article.judul"
               :title="article.judul"
