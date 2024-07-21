@@ -16,7 +16,7 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
-    },  
+    },
     {
       path: '/profile-desa/profile',
       name: 'profile',
@@ -41,6 +41,38 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/VisiMisiView.vue')
     },
+    {
+      path: '/profile-desa/peraturan-desa',
+      name: 'peraturan-desa',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/PeraturanDesaView.vue')
+    },
+    {
+      path: '/berita-desa',
+      name: 'berita-desa',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ArticlesView.vue')
+    },
+    {
+      path: '/berita-desa/artikel',
+      name: 'artikel',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ArticleView.vue')
+    },
+    {
+      path: '/peta-desa',
+      name: 'peta-desa',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/PetaView.vue')
+    }
   ]
 })
 

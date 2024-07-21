@@ -10,8 +10,8 @@ const navigation = [
   { name: 'Pemerintahan Desa', href: '/pemerintahan-desa' },
   { name: 'Berita Desa', href: '/berita-desa' },
   { name: 'Statistik', href: '/statistik' },
-  { name: 'Peta', href: '/peta-desa'},
-  { name: 'Kontak', href: '/kontak'}
+  { name: 'Peta', href: '/peta-desa' },
+  { name: 'Kontak', href: '/kontak' }
 ]
 
 const mobileMenuOpen = ref(false)
@@ -28,7 +28,7 @@ const mobileMenuOpen = ref(false)
         <a href="" class="flex gap-2 lg:gap-4 justify-center items-center">
           <img
             loading="lazy"
-            src="../assets/images/Blitar__sid__irtNbnZ.png"
+            src="/public/images/logo_butun.png"
             class="shrink-0 aspect-square w-10 h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 mb-2 my-1 lg:mb-3"
           />
           <div class="flex flex-col mt-1">
@@ -56,7 +56,7 @@ const mobileMenuOpen = ref(false)
           v-for="item in navigation"
           :key="item.name"
           :href="item.href"
-          class="max-x lg:text-sm xl:text-lg font-medium leading-6 text-white"
+          class="max-x lg:text-sm xl:text-lg font-medium leading-6 text-white hover:text-yellow-primary"
           >{{ item.name }}</a
         >
       </div>
@@ -67,12 +67,14 @@ const mobileMenuOpen = ref(false)
           loading="lazy"
           class="shrink-0 my-auto w-6 aspect-square stroke-white lg:w-5.5 lg:h-5.5"
         />
-        <div class="flex justify-center items-center p-2 bg-yellow-primary rounded-2xl h-8 xl:h-10">
+        <div
+          class="flex justify-center items-center p-2 bg-yellow-primary rounded-2xl h-8 xl:h-10 cursor-pointer hover:text-white"
+        >
           <a
             href="https://blitar-butun.desa.id/siteman"
             rel="noopener noreferrer"
             target="_blank"
-            class="leading-6 lg:text-sm"
+            class="leading-6 text-xs xl:text-sm"
             >Login Admin</a
           >
         </div>
@@ -81,12 +83,14 @@ const mobileMenuOpen = ref(false)
     <Dialog class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
       <div class="fixed inset-0 z-50" />
       <DialogPanel
-        class="fixed inset-y-0 right-0 z-50 w-2/4 overflow-y-auto bg-green-primary px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+        class="fixed inset-y-0 right-0 z-50 h-[30%] w-full overflow-y-auto bg-green-primary sm:ring-1 sm:ring-gray-900/10"
       >
-        <div class="flex items-center justify-between">
+        <div
+          class="flex items-center justify-between sticky top-0 bg-green-primary px-6 py-4 drop-shadow-md"
+        >
           <a href="#" class="-m-1.5 p-1.5">
             <span class="sr-only">Desa Butun</span>
-            <img class="h-12 w-auto" src="../assets/images/Blitar__sid__irtNbnZ.png" alt="" />
+            <img class="h-12 w-auto" src="/images/logo_butun.png" alt="" />
           </a>
           <button
             type="button"
@@ -94,10 +98,13 @@ const mobileMenuOpen = ref(false)
             @click="mobileMenuOpen = false"
           >
             <span class="sr-only">Close menu</span>
-            <XMarkIcon class="h-6 w-6 stroke-white" aria-hidden="true" />
+            <XMarkIcon
+              class="h-6 w-6 stroke-white hover:animate-glow stroke-2 rounded-lg"
+              aria-hidden="true"
+            />
           </button>
         </div>
-        <div class="mt-6 flow-root">
+        <div class="mt-6 flow-root px-6">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
               <a
