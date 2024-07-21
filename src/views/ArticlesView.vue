@@ -1,108 +1,31 @@
-<script>
-import axios from 'axios'
-// import { ref, onMounted } from 'vue'
-
-import ArticleCard from '@/components/ArticleCard.vue'
-import FooterComponent from '@/components/FooterComponent.vue'
-// import IconChevronLeft from '@/components/icons/IconChevronLeft.vue'
-// import IconChevronRight from '@/components/icons/IconChevronRight.vue'
-// import ArticleCarousel from '@/components/ArticleCarousel.vue'
-import { FwbCarousel, FwbSpinner } from 'flowbite-vue'
-import NavBar from '@/components/NavBar.vue'
-
-const url = import.meta.env.VITE_BASE_API_URL
-
-export default {
-  components: {
-    NavBar,
-    FooterComponent,
-    // IconChevronLeft,
-    // IconChevronRight,
-    ArticleCard,
-    FwbCarousel,
-    FwbSpinner
-  },
-  data() {
-    return {
-      articles: [],
-      articlesLoaded: false,
-      articleIsLoading: false,
-      error: null,
-      pageId: null,
-      pictures: [
-        { src: '/public/images/basmi_nyamuk.jpg' },
-        { src: '/public/images/dummy_structure.jpg' },
-        { src: '/public/images/map_butun.png' }
-      ]
-    }
-  },
-  methods: {
-    async fetchArticles(page = 1) {
-      this.articleIsLoading = true
-      try {
-        const response = await axios.get(`${url}artikel`, {
-          params: {
-            page
-          }
-        })
-        console.log(response.data.data)
-        this.articles = response.data.data
-      } catch (err) {
-        this.error = 'Artikel Gagal Dimuat'
-      } finally {
-        this.articlesLoaded = true
-        this.articleIsLoading = false
-      }
-    },
-    getFirstWord(dateString) {
-      return dateString.split(' ')[0]
-    },
-    getImg(img) {
-      return `https://blitar-butun.desa.id/desa/upload/artikel/sedang_${img}`
-    },
-    getUrl(id) {
-      return `/artikel/${id}`
-    }
-  },
-  mounted() {
-    console.log(`url : `, url)
-    this.fetchArticles()
-  }
-}
-</script>
-
 <template>
   <main class="flex flex-col bg-white">
     <NavBar />
     <FwbCarousel :pictures slide :slide-interval="2000" />
-    <!-- <div
-      class="flex overflow-hidden relative flex-col items-center p-10 w-full text-3xl font-bold text-black min-h-[478px] max-md:px-5 max-md:max-w-full"
-    >
-      <img
-        loading="lazy"
-        src="/images/basmi_nyamuk.jpg"
-        class="object-cover absolute inset-0 size-full opacity-10"
-      /> -->
-    <!-- <div class="relative flex items-center justify-between w-full my-auto">
-        <IconChevronLeft :size="48" />
-        <div class="my-auto font-primary">
-          <div class="text-4xl font-extrabold text-center">Butun</div>
-          <div class="text-lg mt-5">Kec. Gandusari, Kab. Blitar</div>
-          <div class="text-lg text-center">Provinsi Jawa Timur</div>
-        </div>
-        <IconChevronRight :size="48" />
-      </div> -->
-    <!-- </div> -->
+
     <div class="self-center mt-14 text-4xl font-bold text-center text-yellow-primary max-md:mt-10">
       Berita Desa
     </div>
+
+    <!-- Search  -->
+    <div class="pt-8 flex flex-col md:flex-row justify-center items-center">
+      <SearchInput  v-model="searchQuery" class="mt-4 md:mt-0" @dblclick="resetFilters"></SearchInput>
+    </div>
+
     <!-- Loading -->
-    <div v-if="articleIsLoading" class="flex justify-center items-center mt-24">
+    <div v-if="articleIsLoading" class="min-h-screen flex justify-center items-center mt-6">
       <FwbSpinner color="yellow" class="w-48 h-48 mr-2"></FwbSpinner>
     </div>
-    <div
-      class="flex flex-col self-center p-5 mt-14 w-full max-w-[1196px] max-md:mt-10 max-md:max-w-full"
-    >
+
+    <!-- Empty Section -->
+    <div v-if="articlesLoaded && articles.length === 0" class="min-h-screen flex justify-center items-center">
+      <div class="flex items-center bg-white p-6 gap-x-4 rounded-lg">
+        <h1 class="font-semibold text-5xl text-[381D4F]">Berita tidak ditemukan</h1>
+      </div>
+    </div>
+
+    <!-- Articles -->
+    <div class="flex flex-col self-center p-5 mt-14 w-full max-w-[1196px] max-md:mt-10 max-md:max-w-full">
       <ArticleCard
         v-for="article in articles"
         :key="article.judul"
@@ -113,9 +36,137 @@ export default {
         class="mt-3"
       />
     </div>
-    <div class="self-center mt-16 font-primary text-xl font-bold text-yellow-primary max-md:mt-10">
-      1 2 3 4 5 6 7 8 9 10
+
+    <!-- Pagination -->
+    <div class="self-center my-8 font-primary text-xl font-bold text-yellow-primary max-md:mt-10">
+      <button @click="prevPage" :disabled="currentPage === 1" class="mr-2">Previous</button>
+      
+      <button v-for="page in paginationRange" 
+              :key="page" 
+              @click="changePage(page)"
+              :disabled="page === '...' || page === currentPage"
+              class="mx-1"
+              :class="{ 'font-bold': page === currentPage, 'cursor-not-allowed': page === '...' }">
+        {{ page }}
+      </button>
+      
+      <button @click="nextPage" :disabled="currentPage === totalPages" class="ml-2">Next</button>
     </div>
+
+
     <FooterComponent />
   </main>
 </template>
+
+<script setup>
+import { ref, onMounted, computed, watch } from 'vue'
+import axios from 'axios'
+import NavBar from '@/components/NavBar.vue'
+import FooterComponent from '@/components/FooterComponent.vue'
+import ArticleCard from '@/components/ArticleCard.vue'
+import SearchInput from '@/components/SearchInput.vue'
+import { FwbCarousel, FwbSpinner } from 'flowbite-vue'
+import debounce from 'lodash/debounce'
+
+const url = import.meta.env.VITE_BASE_API_URL
+
+const articles = ref([])
+const articlesLoaded = ref(false)
+const articleIsLoading = ref(false)
+const currentPage = ref(1)
+const totalPages = ref(1)
+const searchQuery = ref('');
+
+const pictures = ref([
+  { src: '/public/images/basmi_nyamuk.jpg' },
+  { src: '/public/images/dummy_structure.jpg' },
+  { src: '/public/images/map_butun.png' }
+])
+
+const fetchArticles = async (page = 1) => {
+  articleIsLoading.value = true
+  try {
+    const response = await axios.get(`${url}artikel`, {
+      params: { 
+        page,
+        search: searchQuery.value,
+       }
+    })
+    console.log(response.data.data)
+    articles.value = response.data.data
+    totalPages.value = response.data.last_page
+    currentPage.value = response.data.current_page
+  } catch (err) {
+    error.value = 'Artikel Gagal Dimuat'
+  } finally {
+    articlesLoaded.value = true
+    articleIsLoading.value = false
+  }
+}
+
+const debouncedfetchArticles = debounce(fetchArticles, 300);
+
+const getFirstWord = (dateString) => {
+  return dateString.split(' ')[0]
+}
+
+const getImg = (img) => {
+  return `https://blitar-butun.desa.id/desa/upload/artikel/sedang_${img}`
+}
+
+const getUrl = (id) => {
+  return `/artikel/${id}`
+}
+
+const changePage = (page) => {
+  if (page !== currentPage.value && page !== '...') {
+    fetchArticles(page);
+  }
+}
+
+// Function to fetch the next page of jobs
+const nextPage = () => {
+  if (currentPage.value < totalPages.value) {
+    fetchArticles(currentPage.value + 1);
+  }
+};
+
+// Function to fetch the previous page of jobs
+const prevPage = () => {
+  if (currentPage.value > 1) {
+    fetchArticles(currentPage.value - 1);
+  }
+};
+
+// Create a computed property for pagination range
+const paginationRange = computed(() => {
+  const range = [];
+  const total = totalPages.value;
+  const current = currentPage.value;
+  const delta = 2;
+  let left = current - delta;
+  let right = current + delta + 1;
+
+  if (totalPages.value <= 1) {
+    return [];
+  }
+
+  for (let i = 1; i <= total; i++) {
+    if (i === 1 || i === total || (i >= left && i < right)) {
+      range.push(i);
+    } else if (i === left - 1 || i === right) {
+      range.push('...');
+    }
+  }
+  return range;
+});
+
+watch(searchQuery, () => {
+  debouncedfetchArticles();
+});
+
+onMounted(() => {
+  console.log(`url: `, url)
+  fetchArticles()
+})
+</script>
