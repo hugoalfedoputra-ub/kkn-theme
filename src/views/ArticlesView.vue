@@ -73,9 +73,11 @@ const url = import.meta.env.VITE_BASE_API_URL
 const articles = ref([])
 const articlesLoaded = ref(false)
 const articleIsLoading = ref(false)
+const error = ref('');
 const currentPage = ref(1)
 const totalPages = ref(1)
 const searchQuery = ref('');
+
 
 const pictures = ref([
   { src: '/public/images/basmi_nyamuk.jpg' },
@@ -115,7 +117,7 @@ const getImg = (img) => {
 }
 
 const getUrl = (id) => {
-  return `/artikel/${id}`
+  return `/berita-desa/artikel/${id}`
 }
 
 const changePage = (page) => {
