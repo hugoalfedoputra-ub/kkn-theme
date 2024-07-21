@@ -17,7 +17,7 @@
           </p>
         </section>
       </div>
-    </main>
+    </main>/
   </div>
 </template>
 

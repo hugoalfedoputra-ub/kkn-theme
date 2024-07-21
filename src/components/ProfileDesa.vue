@@ -9,7 +9,7 @@
           <div class="flex flex-col self-stretch mt-10 text-black max-md:mt-10 max-md:max-w-full">
             <h2 class="text-4xl font-bold text-yellow-primary max-md:max-w-full">Profil Desa</h2>
             <p class="mt-7 text-lg max-md:max-w-full font-medium">Kenali lebih dalam tentang desa Butun melalui laman profil desa.</p>
-            <a href="#" class="flex gap-3 self-start px-3.5 py-3.5 mt-10 text-base text-center bg-yellow-primary rounded-3xl max-md:mt-10 duration-300 hover:scale-105">
+            <a href="/profile-desa/profile" class="flex gap-3 self-start px-3.5 py-3.5 mt-10 text-base text-center bg-yellow-primary rounded-3xl max-md:mt-10 duration-300 hover:scale-105">
                 <span class="my-auto">Cek Selengkapnya</span>
                 <IconArrowRight class="shrink-0 w-6 aspect-square"/>
               </a>
