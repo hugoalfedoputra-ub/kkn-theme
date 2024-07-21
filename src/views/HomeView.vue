@@ -46,7 +46,7 @@ const getImg = (img) => {
 }
 
 const getUrl = (id) => {
-  return '/artikel/' + id
+  return `/berita-desa/artikel/${id}`
 }
 
 onMounted(() => {
