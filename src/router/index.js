@@ -72,6 +72,38 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/PetaView.vue')
+    },
+    {
+      path: '/statistik',
+      name: 'statistik-desa',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/StatistikView.vue')
+    },
+    {
+      path: '/statistik/kependudukan',
+      name: 'statistik-kependudukan',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../components/HalamanPenduduk.vue')
+    },
+    {
+      path: '/statistik/agama',
+      name: 'statistik-agama',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../components/HalamanDataAgama.vue')
+    },
+    {
+      path: '/statistik/pendidikan',
+      name: 'statistik-penduduk',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../components/HalamanPendidikan.vue')
     }
   ]
 })

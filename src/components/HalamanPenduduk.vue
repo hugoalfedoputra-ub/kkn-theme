@@ -1,41 +1,49 @@
 <template>
-    <div class="container mx-auto px-4 py-8">
-      <h1 class="text-4xl font-bold text-yellow-600 mb-8">Kependudukan</h1>
-      <div class="grid grid-cols-4 gap-6">
-        <Card v-for="(penduduk, index) in Penduduk" :key="index" :title="penduduk.title" :count="penduduk.count" />
-      </div>
-      <!--
-      <div class="mt-12">
-        <h2 class="text-2xl font-semibold text-center mb-4">Statistik Pendidikan</h2>
-        <p class="text-center mb-8">Total Data: 7740</p>
-        <img src="@/assets/education-chart.png" alt="Statistik Pendidikan" class="mx-auto" />
-      </div>-->
+  <div class="max-w-[80rem] mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold text-yellow-primary mb-8">Kependudukan</h1>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <Card
+        v-for="(penduduk, index) in Penduduk"
+        :key="index"
+        :title="penduduk.title"
+        :count="penduduk.count"
+        class="cursor-pointer"
+      />
     </div>
-  </template>
-  
-  <script>
-  import Card from './Card.vue';
-  
-  export default {
-    components: {
-      Card,
-    },
-    data() {
-      return {
-        Penduduk: [
-          { title: 'Kepala Keluarga', count: '999.999' },
-          { title: 'Penduduk', count: '999.999' },
-          { title: 'Laki-Laki', count: '999.999' },
-          { title: 'Perempuan', count: '999.999' },
-        ],
-      };
-    },
-  };
-  </script>
-  
-  <style scoped>
-  .container {
-    max-width: 1200px;
+    <div class="mt-12">
+      <UsiaPenduduk />
+    </div>
+    <div class="mt-12">
+      <StatusKawin />
+    </div>
+    <div class="mt-12">
+      <Pekerjaan />
+    </div>
+  </div>
+</template>
+
+<script>
+import Card from './StatisticCard.vue'
+import UsiaPenduduk from './UsiaPenduduk.vue'
+import StatusKawin from './StatusKawin.vue'
+import Pekerjaan from './Pekerjaan.vue'
+
+export default {
+  components: {
+    Card,
+    UsiaPenduduk,
+    StatusKawin,
+    Pekerjaan
+  },
+  data() {
+    return {
+      Penduduk: [
+        { title: 'Kepala Keluarga', count: 999999 },
+        { title: 'Penduduk', count: 999999 },
+        { title: 'Laki-Laki', count: 999999 },
+        { title: 'Perempuan', count: 999999 }
+      ]
+    }
   }
-  </style>
-  
+}
+</script>

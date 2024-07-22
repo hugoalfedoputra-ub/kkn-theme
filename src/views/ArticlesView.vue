@@ -9,7 +9,11 @@
 
     <!-- Search  -->
     <div class="pt-8 flex flex-col md:flex-row justify-center items-center">
-      <SearchInput  v-model="searchQuery" class="mt-4 md:mt-0" @dblclick="resetFilters"></SearchInput>
+      <SearchInput
+        v-model="searchQuery"
+        class="mt-4 md:mt-0"
+        @dblclick="resetFilters"
+      ></SearchInput>
     </div>
 
     <!-- Loading -->
@@ -18,14 +22,19 @@
     </div>
 
     <!-- Empty Section -->
-    <div v-if="articlesLoaded && articles.length === 0" class="min-h-screen flex justify-center items-center">
+    <div
+      v-if="articlesLoaded && articles.length === 0"
+      class="min-h-screen flex justify-center items-center"
+    >
       <div class="flex items-center bg-white p-6 gap-x-4 rounded-lg">
-        <h1 class="font-semibold text-5xl text-[381D4F]">Berita tidak ditemukan</h1>
+        <ArticleNotFound />
       </div>
     </div>
 
     <!-- Articles -->
-    <div class="flex flex-col self-center p-5 mt-14 w-full max-w-[1196px] max-md:mt-10 max-md:max-w-full">
+    <div
+      class="flex flex-col self-center p-5 mt-14 w-full max-w-[1196px] max-md:mt-10 max-md:max-w-full"
+    >
       <ArticleCard
         v-for="article in articles"
         :key="article.judul"
@@ -40,19 +49,20 @@
     <!-- Pagination -->
     <div class="self-center my-8 font-primary text-xl font-bold text-yellow-primary max-md:mt-10">
       <button @click="prevPage" :disabled="currentPage === 1" class="mr-2">Previous</button>
-      
-      <button v-for="page in paginationRange" 
-              :key="page" 
-              @click="changePage(page)"
-              :disabled="page === '...' || page === currentPage"
-              class="mx-1"
-              :class="{ 'font-bold': page === currentPage, 'cursor-not-allowed': page === '...' }">
+
+      <button
+        v-for="page in paginationRange"
+        :key="page"
+        @click="changePage(page)"
+        :disabled="page === '...' || page === currentPage"
+        class="mx-1"
+        :class="{ 'font-bold': page === currentPage, 'cursor-not-allowed': page === '...' }"
+      >
         {{ page }}
       </button>
-      
+
       <button @click="nextPage" :disabled="currentPage === totalPages" class="ml-2">Next</button>
     </div>
-
 
     <FooterComponent />
   </main>
@@ -67,17 +77,17 @@ import ArticleCard from '@/components/ArticleCard.vue'
 import SearchInput from '@/components/SearchInput.vue'
 import { FwbCarousel, FwbSpinner } from 'flowbite-vue'
 import debounce from 'lodash/debounce'
+import ArticleNotFound from '@/components/ArticleNotfound.vue'
 
 const url = import.meta.env.VITE_BASE_API_URL
 
 const articles = ref([])
 const articlesLoaded = ref(false)
 const articleIsLoading = ref(false)
-const error = ref('');
+const error = ref('')
 const currentPage = ref(1)
 const totalPages = ref(1)
-const searchQuery = ref('');
-
+const searchQuery = ref('')
 
 const pictures = ref([
   { src: '/public/images/basmi_nyamuk.jpg' },
@@ -89,10 +99,10 @@ const fetchArticles = async (page = 1) => {
   articleIsLoading.value = true
   try {
     const response = await axios.get(`${url}artikel`, {
-      params: { 
+      params: {
         page,
-        search: searchQuery.value,
-       }
+        search: searchQuery.value
+      }
     })
     console.log(response.data.data)
     articles.value = response.data.data
@@ -106,7 +116,7 @@ const fetchArticles = async (page = 1) => {
   }
 }
 
-const debouncedfetchArticles = debounce(fetchArticles, 300);
+const debouncedfetchArticles = debounce(fetchArticles, 300)
 
 const getFirstWord = (dateString) => {
   return dateString.split(' ')[0]
@@ -122,50 +132,50 @@ const getUrl = (id) => {
 
 const changePage = (page) => {
   if (page !== currentPage.value && page !== '...') {
-    fetchArticles(page);
+    fetchArticles(page)
   }
 }
 
 // Function to fetch the next page of jobs
 const nextPage = () => {
   if (currentPage.value < totalPages.value) {
-    fetchArticles(currentPage.value + 1);
+    fetchArticles(currentPage.value + 1)
   }
-};
+}
 
 // Function to fetch the previous page of jobs
 const prevPage = () => {
   if (currentPage.value > 1) {
-    fetchArticles(currentPage.value - 1);
+    fetchArticles(currentPage.value - 1)
   }
-};
+}
 
 // Create a computed property for pagination range
 const paginationRange = computed(() => {
-  const range = [];
-  const total = totalPages.value;
-  const current = currentPage.value;
-  const delta = 2;
-  let left = current - delta;
-  let right = current + delta + 1;
+  const range = []
+  const total = totalPages.value
+  const current = currentPage.value
+  const delta = 2
+  let left = current - delta
+  let right = current + delta + 1
 
   if (totalPages.value <= 1) {
-    return [];
+    return []
   }
 
   for (let i = 1; i <= total; i++) {
     if (i === 1 || i === total || (i >= left && i < right)) {
-      range.push(i);
+      range.push(i)
     } else if (i === left - 1 || i === right) {
-      range.push('...');
+      range.push('...')
     }
   }
-  return range;
-});
+  return range
+})
 
 watch(searchQuery, () => {
-  debouncedfetchArticles();
-});
+  debouncedfetchArticles()
+})
 
 onMounted(() => {
   console.log(`url: `, url)

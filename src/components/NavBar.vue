@@ -2,7 +2,10 @@
 import { ref } from 'vue'
 import { Dialog, DialogPanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { useRoute } from 'vue-router'
 import SearchIcon from '../components/icons/IconSearch.vue'
+
+const route = useRoute()
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -10,11 +13,14 @@ const navigation = [
   { name: 'Pemerintahan Desa', href: '/pemerintahan-desa' },
   { name: 'Berita Desa', href: '/berita-desa' },
   { name: 'Statistik', href: '/statistik' },
-  { name: 'Peta', href: '/peta-desa' },
-  { name: 'Kontak', href: '/kontak' }
+  { name: 'Peta', href: '/peta-desa' }
 ]
 
 const mobileMenuOpen = ref(false)
+
+const isActive = (href) => {
+  return route.path === href
+}
 </script>
 
 <template>
@@ -56,7 +62,11 @@ const mobileMenuOpen = ref(false)
           v-for="item in navigation"
           :key="item.name"
           :href="item.href"
-          class="max-x lg:text-sm xl:text-lg font-medium leading-6 text-white hover:text-yellow-primary"
+          :class="[
+            'max-x lg:text-sm xl:text-lg font-medium leading-6',
+            isActive(item.href) ? 'text-yellow-primary' : 'text-white',
+            'hover:text-yellow-primary'
+          ]"
           >{{ item.name }}</a
         >
       </div>
@@ -111,7 +121,11 @@ const mobileMenuOpen = ref(false)
                 v-for="item in navigation"
                 :key="item.name"
                 :href="item.href"
-                class="font-secondary -mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-white hover:bg-yellow-primary"
+                :class="[
+                  'font-secondary -mx-3 block rounded-lg px-3 py-2 text-base leading-7',
+                  isActive(item.href) ? 'bg-yellow-primary' : 'text-white',
+                  'hover:bg-yellow-primary'
+                ]"
                 >{{ item.name }}</a
               >
             </div>
