@@ -31,7 +31,7 @@ const isActive = (href) => {
     >
       <div class="my-1">
         <span class="sr-only">Desa Butun</span>
-        <a href="" class="flex gap-2 lg:gap-4 justify-center items-center">
+        <a href="/" class="flex gap-2 lg:gap-4 justify-center items-center">
           <img
             loading="lazy"
             src="/public/images/logo_butun.png"

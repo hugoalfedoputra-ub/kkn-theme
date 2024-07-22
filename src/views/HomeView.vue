@@ -106,10 +106,12 @@ onMounted(() => {
           <div class="mt-12 text-2xl font-bold max-md:mt-10 font-primary">Desa Butun</div>
           <div class="mt-2.5 font-secondary">Kec. Gandusari, Kab. Blitar</div>
           <div class="mt-2.5 font-secondary">Provinsi Jawa Timur</div>
-          <div class="flex gap-1 md:gap-2.5 p-4 mt-8 text-start bg-yellow-primary rounded-3xl">
-            <div class="text-xs md:text-md lg:text-[0.8rem] my-auto font-secondary">
+          <div
+            class="flex gap-1 md:gap-2.5 p-4 mt-8 text-start bg-yellow-primary rounded-3xl cursor-pointer duration-300 hover:scale-105 hover:text-white hover:stroke-white"
+          >
+            <a href="/peta-desa" class="text-xs md:text-md lg:text-[0.8rem] my-auto font-secondary">
               Cek Selengkapnya
-            </div>
+            </a>
             <IconArrowRight class="shrink-0 w-5 aspect-square" />
           </div>
         </div>
