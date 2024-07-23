@@ -1,6 +1,7 @@
 <script setup>
 import axios from 'axios'
 import { ref, onMounted, computed } from 'vue'
+import { FwbSpinner } from 'flowbite-vue'
 
 import NavBar from '@/components/NavBar.vue'
 import InteractiveMap from '@/components/InteractiveMap.vue'
@@ -8,8 +9,7 @@ import HomePageArticleCard from '@/components/HomePageArticleCard.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 import IconCalenderSchedule from '@/components/icons/IconCalenderSchedule.vue'
 import IconArrowRight from '@/components/icons/IconArrowRight.vue'
-import { FwbSpinner } from 'flowbite-vue'
-import AparaturCard from '@/components/AparaturCard.vue'
+import AparaturDesa from '@/components/AparaturDesa.vue'
 
 const url = import.meta.env.VITE_BASE_API_URL
 const articles = ref([])
@@ -91,7 +91,9 @@ onMounted(() => {
       class="flex flex-col justify-center px-5 py-10 w-full text-4xl font-bold text-center text-yellow-primary bg-emerald-900 max-md:max-w-full"
     >
       <div class="self-center font-primary">Aparatur Desa</div>
-      <AparaturCard />
+      <div class="self-center my-10">
+        <AparaturDesa />
+      </div>
     </div>
     <div
       class="justify-end md:px-10 lg:px-20 py-0 md:py-10 w-full bg-white-secondary max-md:px-5 max-md:max-w-full"
@@ -107,17 +109,14 @@ onMounted(() => {
             <div class="mt-12 text-2xl font-bold max-md:mt-10 font-primary">Desa Butun</div>
             <div class="mt-2.5 font-secondary">Kec. Gandusari, Kab. Blitar</div>
             <div class="mt-2.5 font-secondary">Provinsi Jawa Timur</div>
-            <div
-              class="flex gap-1 md:gap-2.5 p-4 mt-8 text-start bg-yellow-primary rounded-3xl cursor-pointer duration-300 hover:scale-105 hover:text-white hover:stroke-white"
+            <a
+              href="/peta-desa"
+              class="text-xs md:text-md lg:text-[0.8rem] my-auto font-secondary flex items-center gap-1 md:gap-2.5 p-4 mt-8 text-start bg-yellow-primary rounded-3xl cursor-pointer duration-300 hover:scale-105 hover:text-white hover:stroke-white"
             >
-              <a
-                href="/peta-desa"
-                class="text-xs md:text-md lg:text-[0.8rem] my-auto font-secondary"
-              >
-                Cek Selengkapnya
-              </a>
+              Cek Selengkapnya
+
               <IconArrowRight class="shrink-0 w-5 aspect-square" />
-            </div>
+            </a>
           </div>
         </div>
         <div class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">

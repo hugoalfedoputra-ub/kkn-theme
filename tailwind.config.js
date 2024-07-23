@@ -17,10 +17,7 @@ export default {
       colors: {
         'green-primary': '#004F2D',
         'yellow-primary': '#EDAE49',
-        'white-secondary': '#EAECEF',
-        'red-statistic': '#ED5349',
-        'green-statistic': '#49ED59',
-        'blue-statistic': '#49A8ED'
+        'white-secondary': '#EAECEF'
       },
       keyframes: {
         glow: {

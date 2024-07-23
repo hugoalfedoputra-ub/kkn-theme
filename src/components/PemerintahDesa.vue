@@ -20,7 +20,7 @@
               melayani masyarakat.
             </p>
             <a
-              href="#"
+              href="pemerintahan-desa"
               class="flex gap-3 self-start px-3.5 py-3.5 mt-10 text-base text-center bg-yellow-primary rounded-3xl max-md:mt-10 duration-300 hover:scale-105"
             >
               <span class="my-auto">Cek Selengkapnya</span>

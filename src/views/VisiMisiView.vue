@@ -31,6 +31,7 @@
         </div>
       </div>
     </div>
+
     <FooterComponent />
   </main>
 </template>

@@ -9,7 +9,7 @@ export default {
   },
   data() {
     return {
-      zoom: 2
+      zoom: 14
     }
   }
 }
@@ -17,7 +17,7 @@ export default {
 
 <template>
   <div class="mymap z-0">
-    <l-map ref="map" v-model:zoom="zoom" :center="[47.41322, -1.219482]">
+    <l-map ref="map" v-model:zoom="zoom" :center="[-8.045467372064147, 112.32297477291522]">
       <l-tile-layer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         layer-type="base"

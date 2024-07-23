@@ -15,14 +15,14 @@ export default {
   data() {
     return {
       stats: [
-        { value: 100, label: 'Hektare Wilayah', color: 'text-red-statistic' },
-        { value: 70, label: 'Hektare Sawah', color: 'text-green-statistic' },
-        { value: 20, label: 'Hektare Tegalan', color: 'text-blue-statistic' }
+        { value: 100, label: 'Hektare Wilayah', color: 'text-red-400' },
+        { value: 70, label: 'Hektare Sawah', color: 'text-green-400' },
+        { value: 20, label: 'Hektare Tegalan', color: 'text-blue-400' }
       ],
       additionalStats: [
-        { value: 5, label: 'Dusun', color: 'text-red-statistic' },
-        { value: 17, label: 'RW', color: 'text-green-statistic' },
-        { value: 60, label: 'RT', color: 'text-blue-statistic' }
+        { value: 5, label: 'Dusun', color: 'text-red-400' },
+        { value: 17, label: 'RW', color: 'text-green-400' },
+        { value: 60, label: 'RT', color: 'text-blue-400' }
       ]
     }
   },
@@ -60,14 +60,12 @@ export default {
       >
         Wilayah Desa
       </h1>
-      <p class="mt-16 text-base text-black max-md:mt-10 max-md:max-w-full font-secondary">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-        galley of type and scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-        passages, and more recently with desktop publishing software like Aldus PageMaker including
-        versions of Lorem Ipsum.
+      <p class="mt-10 text-base text-black max-md:mt-10 max-md:max-w-full font-secondary mx-10">
+        Secara geografis, Desa Butun terletak pada posisi 8°4'19.0"S Lintang Selatan dan
+        112°17'24.7"E Bujur Timur. Jarak dari desa ke kecamatan kurang lebih 1 km, dan jarak dari
+        desa ke Kota Blitar kurang lebih 23 km. Desa Butun termasuk daerah dataran tinggi dengan
+        ketinggian wilayah kecamatan dari permukaan 400 m diatas permukaan laut dan luas wilayah 412
+        Km2. Informasi lebih detail mengenai wilayah Desa Butun dapat dilihat dibawah berikut.
       </p>
       <div class="mt-16 w-4/5 max-md:mt-10">
         <div class="flex gap-5 max-md:flex-col max-md:gap-0">
