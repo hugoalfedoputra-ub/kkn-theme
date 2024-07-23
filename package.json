@@ -14,11 +14,12 @@
     "@headlessui/vue": "^1.7.22",
     "@heroicons/vue": "^2.1.5",
     "axios": "^1.7.2",
+    "d3": "^7.9.0",
     "flowbite": "^2.4.1",
     "flowbite-vue": "^0.1.5",
     "lodash.debounce": "^4.0.8",
-    "d3": "^7.9.0",
     "vue": "^3.4.29",
+    "vue-recaptcha-v3": "^2.0.1",
     "vue-router": "^4.3.3"
   },
   "devDependencies": {

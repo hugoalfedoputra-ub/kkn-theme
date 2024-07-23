@@ -6,6 +6,7 @@ import { FwbSpinner } from 'flowbite-vue'
 import NavBar from '@/components/NavBar.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 
+const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY
 const url = import.meta.env.VITE_BASE_API_URL
 
 const route = useRoute()
@@ -46,14 +47,35 @@ const fetchComments = async () => {
 
 const submitComment = async () => {
   try {
-    await axios.post(`${url}komentar`, { ...newComment.value, id_artikel: articleId })
+    const recaptchaResponse = await executeRecaptcha()
+    await axios.post(`${url}komentar`, { 
+      ...newComment.value, 
+      id_artikel: articleId,
+      recaptcha: recaptchaResponse
+    })
+    
     newComment.value = { owner: '', email: '', no_hp: '', komentar: '' }
     await fetchComments()
+
+    grecaptcha.reset()
   } catch (err) {
     error.value = 'Gagal Mengirim Komentar'
     console.log(error.value)
   }
 }
+
+const executeRecaptcha = () => {
+  return new Promise((resolve, reject) => {
+    grecaptcha.ready(() => {
+      grecaptcha.execute(recaptchaSiteKey, {action: 'submit'}).then((token) => {
+        resolve(token)
+      }).catch((error) => {
+        reject(error)
+      })
+    })
+  })
+}
+
 
 onMounted(() => {
   console.log(`url: `, url)
@@ -120,6 +142,7 @@ onMounted(() => {
           <label for="komentar" class="block mb-2">Komentar</label>
           <textarea v-model="newComment.komentar" id="komentar" required class="w-full p-2 border rounded" rows="4"></textarea>
         </div>
+        <div class="g-recaptcha" :data-sitekey="recaptchaSiteKey"></div>
         <button type="submit" class="bg-yellow-primary text-white px-4 py-2 rounded">Kirim Komentar</button>
       </form>
 
