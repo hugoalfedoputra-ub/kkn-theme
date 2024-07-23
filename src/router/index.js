@@ -23,6 +23,86 @@ const router = createRouter({
       name: 'profile',
       component: () => import('../views/ProfileView.vue')
     },
+    {
+      path: '/profile-desa/sejarah',
+      name: 'sejarah',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/SejarahView.vue')
+    },
+    {
+      path: '/profile-desa/visi-misi',
+      name: 'visi-misi',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/VisiMisiView.vue')
+    },
+    {
+      path: '/profile-desa/peraturan-desa',
+      name: 'peraturan-desa',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/PeraturanDesaView.vue')
+    },
+    {
+      path: '/berita-desa',
+      name: 'berita-desa',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ArticlesView.vue')
+    },
+    {
+      path: '/berita-desa/artikel/:id',
+      name: 'artikel',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ArticleView.vue')
+    },
+    {
+      path: '/peta-desa',
+      name: 'peta-desa',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/PetaView.vue')
+    },
+    {
+      path: '/statistik',
+      name: 'statistik-desa',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/StatistikView.vue')
+    },
+    {
+      path: '/statistik/kependudukan',
+      name: 'statistik-kependudukan',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../components/HalamanPenduduk.vue')
+    },
+    {
+      path: '/statistik/agama',
+      name: 'statistik-agama',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../components/HalamanDataAgama.vue')
+    },
+    {
+      path: '/statistik/pendidikan',
+      name: 'statistik-penduduk',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../components/HalamanPendidikan.vue')
+    }
   ]
 })
 
