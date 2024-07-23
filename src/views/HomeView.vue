@@ -61,12 +61,12 @@ onMounted(() => {
     class="flex flex-col justify-center w-full text-3xl font-bold text-black bg-white max-md:max-w-full"
   >
     <div
-      class="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 w-full min-h-[650px] max-md:px-5 max-md:max-w-full"
+      class="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 z-0 w-full min-h-[650px] max-md:px-5 max-md:max-w-full"
     >
       <img
         loading="lazy"
         src="/images/cover_landing_page.jpg"
-        class="object-cover absolute inset-0 size-full opacity-50"
+        class="object-cover absolute inset-0 size-full opacity-50 z-0"
       />
       <div
         class="flex relative flex-col justify-center px-5 py-2 mt-28 mb-11 max-w-full w-[569px] max-md:px-5 max-md:my-10"

@@ -50,6 +50,11 @@ const router = createRouter({
       component: () => import('../views/PeraturanDesaView.vue')
     },
     {
+      path: '/pemerintahan-desa',
+      name: 'pemerintahan-desa',
+      component: () => import('../views/PemerintahanDesaView.vue')
+    },
+    {
       path: '/berita-desa',
       name: 'berita-desa',
       // route level code-splitting
