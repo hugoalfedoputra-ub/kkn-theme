@@ -28,12 +28,12 @@ export default {
   data() {
     return {
       religions: [
-        { title: 'Islam', count: 1 },
-        { title: 'Kristen', count: 999999 },
-        { title: 'Katolik', count: 999999 },
-        { title: 'Hindu', count: 999999 },
-        { title: 'Budha', count: 999999 },
-        { title: 'Konghucu', count: 0 }
+        { title: 'Islam', count: 5271 },
+        { title: 'Kristen', count: 30 },
+        { title: 'Katolik', count: 7 },
+        { title: 'Hindu', count: 8 },
+        // { title: 'Budha', count: 999999 },
+        // { title: 'Konghucu', count: 0 }
       ]
     }
   },

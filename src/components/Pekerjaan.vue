@@ -16,14 +16,14 @@
     methods: {
       createChart() {
         const data = [
-          { job: 'Petani / Pekebun', count: 2970 },
-          { job: 'Belum / Tidak Bekerja', count: 1899 },
-          { job: 'Pelajar / Mahasiswa', count: 1125 },
-          { job: 'Buruh Harian Lepas', count: 790 },
-          { job: 'Mengurus Rumah Tangga', count: 712 },
-          { job: 'Karyawan Swasta', count: 348 },
-          { job: 'Wiraswasta', count: 329 },
-          { job: 'Pedagang', count: 79 }
+          { job: 'Petani / Pekebun', count: 911 },
+          { job: 'Ibu Rumah Tangga', count: 763 },
+          { job: 'Karyawan Perusahaan Swasta', count: 628 },
+          { job: 'Buruh Tani', count: 202 },
+          { job: 'PNS', count: 161 },
+          { job: 'Buruh Migran', count: 52 },
+          { job: 'Pedagang', count: 36 },
+          { job: 'Tukang Kayu', count: 36 }
         ];
   
         const margin = { top: 20, right: 30, bottom: 40, left: 150 };
@@ -39,7 +39,7 @@
           .attr("transform", `translate(${margin.left},${margin.top})`);
   
         const x = d3.scaleLinear()
-          .domain([0, 3000])
+          .domain([0, 1000])
           .range([0, width]);
   
         svg.append("g")

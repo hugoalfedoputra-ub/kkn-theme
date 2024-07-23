@@ -32,16 +32,16 @@ export default {
   components: {
     Card,
     UsiaPenduduk,
-    StatusKawin,
+    // StatusKawin,
     Pekerjaan
   },
   data() {
     return {
       Penduduk: [
-        { title: 'Kepala Keluarga', count: 999999 },
-        { title: 'Penduduk', count: 999999 },
-        { title: 'Laki-Laki', count: 999999 },
-        { title: 'Perempuan', count: 999999 }
+        { title: 'Kepala Keluarga', count: 1818 },
+        { title: 'Penduduk', count: 5296 },
+        { title: 'Laki-Laki', count: 2631 },
+        { title: 'Perempuan', count: 2665 }
       ]
     }
   }
