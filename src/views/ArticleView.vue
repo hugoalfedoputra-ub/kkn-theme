@@ -44,6 +44,17 @@ const fetchComments = async () => {
   }
 }
 
+const submitComment = async () => {
+  try {
+    await axios.post(`${url}komentar`, { ...newComment.value, id_artikel: articleId })
+    newComment.value = { owner: '', email: '', no_hp: '', komentar: '' }
+    await fetchComments()
+  } catch (err) {
+    error.value = 'Gagal Mengirim Komentar'
+    console.log(error.value)
+  }
+}
+
 onMounted(() => {
   console.log(`url: `, url)
   fetchArticle()
@@ -90,6 +101,27 @@ onMounted(() => {
         </div>
       </div>
 
+      <!-- Comment Form -->
+      <form @submit.prevent="submitComment" class="my-10 space-y-4">
+        <h3 class="text-xl font-bold">Beri Komentar</h3>
+        <div>
+          <label for="owner" class="block mb-2">Nama</label>
+          <input v-model="newComment.owner" id="owner" type="text" required class="w-full p-2 border rounded">
+        </div>
+        <div>
+          <label for="email" class="block mb-2">Email</label>
+          <input v-model="newComment.email" id="email" type="email" required class="w-full p-2 border rounded">
+        </div>
+        <div>
+          <label for="no_hp" class="block mb-2">No. HP</label>
+          <input v-model="newComment.no_hp" id="no_hp" type="text" class="w-full p-2 border rounded">
+        </div>
+        <div>
+          <label for="komentar" class="block mb-2">Komentar</label>
+          <textarea v-model="newComment.komentar" id="komentar" required class="w-full p-2 border rounded" rows="4"></textarea>
+        </div>
+        <button type="submit" class="bg-yellow-primary text-white px-4 py-2 rounded">Kirim Komentar</button>
+      </form>
 
     </div>
     <FooterComponent />
