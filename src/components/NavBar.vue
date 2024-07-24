@@ -104,7 +104,7 @@ const hideSubItems = () => {
           </a>
           <div
             v-if="item.subItems && hoverIndex === index"
-            class="absolute left-0 mt-1 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-99"
+            class="absolute left-0 mt-1 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50"
             @mouseenter="showSubItems(index)"
             @mouseleave="hideSubItems"
             
