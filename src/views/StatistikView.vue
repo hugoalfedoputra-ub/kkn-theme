@@ -2,7 +2,7 @@
   <main>
     <NavBar />
     <div class="flex justify-center items-center">
-      <div class="w-full px-2 py-16 sm:px-0">
+      <div class="w-[80%] px-2 py-16 sm:px-0">
         <TabGroup>
           <TabList class="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
             <Tab

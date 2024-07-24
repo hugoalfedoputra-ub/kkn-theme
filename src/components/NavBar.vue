@@ -9,8 +9,8 @@ const route = useRoute()
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { 
-    name: 'Profile Desa', 
+  {
+    name: 'Profile Desa',
     href: '/profile-desa',
     subItems: [
       { name: 'Sejarah Desa', href: '/profile-desa/sejarah' },
@@ -31,6 +31,12 @@ const hideTimeout = ref(null)
 
 const isActive = (href) => {
   return route.path === href
+}
+
+const isSearchActive = ref(false)
+
+const toggleSearch = () => {
+  isSearchActive.value = !isSearchActive.value
 }
 
 const showSubItems = (index) => {
@@ -84,7 +90,7 @@ const hideSubItems = () => {
       </div>
 
       <!-- Desktop Navigation -->
-      <div class="hidden lg:flex lg:gap-x-4 xl:gap-x-7 relative">
+      <div v-if="!isSearchActive" class="hidden lg:flex lg:gap-x-4 xl:gap-x-7 relative">
         <div
           v-for="(item, index) in navigation"
           :key="item.name"
@@ -104,32 +110,45 @@ const hideSubItems = () => {
           </a>
           <div
             v-if="item.subItems && hoverIndex === index"
-            class="absolute left-0 mt-1 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50"
+            class="absolute left-0 p-4 mt-1 w-48 rounded-md shadow-lg bg-green-primary ring-1 ring-black ring-opacity-5 z-50 font-primary font-semibold"
             @mouseenter="showSubItems(index)"
             @mouseleave="hideSubItems"
-            
           >
             <div>
-              <div
+              <a
                 v-for="subItem in item.subItems"
                 :key="subItem.name"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                :href="subItem.href"
+                class="block px-4 py-2 text-sm text-white hover:bg-yellow-primary hover:text-black rounded-xl"
               >
-                <a :href="subItem.href">{{ subItem.name }}</a>
-              </div>
+                {{ subItem.name }}
+              </a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Search and Login Section -->
+      <!-- Search bar -->
+      <div v-else class="flex items-center w-full">
+        <input
+          type="text"
+          placeholder="Search..."
+          class="w-full p-2 text-gray-900 rounded-lg focus:outline-none"
+        />
+
+        <XMarkIcon @click="toggleSearch" class="w-8 text-white ml-4 cursor-pointer" />
+      </div>
+
+      <!-- Search Icon and Login Section -->
       <div
         class="hidden lg:flex lg:gap-3 xl:gap-5 lg:justify-start lg:items-center text-base font-semibold"
       >
-        <SearchIcon
-          loading="lazy"
-          class="shrink-0 my-auto w-6 aspect-square stroke-white lg:w-5.5 lg:h-5.5"
-        />
+        <button @click="toggleSearch" v-if="!isSearchActive">
+          <SearchIcon
+            loading="lazy"
+            class="shrink-0 my-auto w-6 aspect-square stroke-white lg:w-5.5 lg:h-5.5"
+          />
+        </button>
         <div
           class="flex justify-center items-center p-2 bg-yellow-primary rounded-2xl h-8 xl:h-10 cursor-pointer hover:text-white"
         >

@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-full">
     <h2 class="text-2xl font-semibold text-center mb-4">Penduduk Berdasarkan Usia</h2>
-    <div id="age-chart"></div>
+    <div id="age-chart" class="max-w-full"></div>
   </div>
 </template>
 

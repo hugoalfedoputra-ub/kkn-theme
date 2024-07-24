@@ -12,11 +12,23 @@
   </div>
 
   <section class="flex flex-col px-16 py-16 max-md:px-5">
-    <h1 class="self-center text-4xl font-bold text-center text-orange-400 max-md:max-w-full">
+    <h1 class="self-center text-4xl font-bold text-center text-yellow-primary max-md:max-w-full">
       Pemerintah Desa
     </h1>
-    <div class="flex flex-col flex-wrap justify-center content-center py-20 mt-5 max-md:px-5 max-md:max-w-full">
-      <div class="flex gap-5 justify-between max-md:flex-wrap max-md:max-w-full">
+    <div
+      class="flex flex-col flex-wrap justify-center content-center py-20 mt-5 max-md:px-5 max-md:max-w-full"
+    >
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16">
+        <StaffDesaCard
+          v-for="(profile, index) in profiles"
+          :key="index"
+          :name="profile.name"
+          :position="profile.position"
+          :image-src="profile.imageSrc"
+        />
+      </div>
+
+      <!-- <div class="flex gap-5 justify-between max-md:flex-wrap max-md:max-w-full">
         <StaffDesaCard
           v-for="(profile, index) in profiles.slice(0, 4)"
           :key="index"
@@ -35,36 +47,38 @@
         />
       </div>
       <div class="flex gap-5 justify-between max-md:flex-wrap max-md:max-w-full mt-12">
-          <StaffDesaCard
-            v-for="(profile, index) in profiles.slice(8, 12)"
-            :key="index + 8"
-            :name="profile.name"
-            :position="profile.position"
-            :image-src="profile.imageSrc"
-          />
-      </div>
+        <StaffDesaCard
+          v-for="(profile, index) in profiles.slice(8, 12)"
+          :key="index + 8"
+          :name="profile.name"
+          :position="profile.position"
+          :image-src="profile.imageSrc"
+        />
+      </div> -->
     </div>
   </section>
   <FooterComponent />
 </template>
 
 <script>
-import NavBar from '../components/NavBar.vue';
-import StaffDesaCard from '../components/StaffDesaCard.vue';
-import FooterComponent from '../components/FooterComponent.vue';
-import profiles from '../assets/profiles.json';
+import NavBar from '../components/NavBar.vue'
+import StaffDesaCard from '../components/StaffDesaCard.vue'
+import FooterComponent from '../components/FooterComponent.vue'
+import profiles from '../assets/profiles.json'
+// import AparaturCard from '@/components/AparaturCard.vue'
 
 export default {
   name: 'PemerintahanDesa',
   components: {
     NavBar,
     StaffDesaCard,
-    FooterComponent,
+    // AparaturCard,
+    FooterComponent
   },
   data() {
     return {
-      profiles,
-    };
-  },
-};
+      profiles
+    }
+  }
+}
 </script>

@@ -42,7 +42,7 @@
         :date="getFirstWord(article.tgl_upload)"
         :href="getUrl(article.id)"
         :src="getImg(article.gambar)"
-        class="mt-3"
+        class="mt-3 duration-300 hover:scale-105"
       />
     </div>
 
