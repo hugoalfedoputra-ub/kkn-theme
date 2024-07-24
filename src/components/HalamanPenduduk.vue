@@ -24,7 +24,7 @@
 
 <script>
 import UsiaPenduduk from './UsiaPenduduk.vue'
-import StatusKawin from './StatusKawin.vue'
+// import StatusKawin from './StatusKawin.vue'
 import Pekerjaan from './Pekerjaan.vue'
 import StatisticCard from './StatisticCard.vue'
 
@@ -32,7 +32,7 @@ export default {
   components: {
     StatisticCard,
     UsiaPenduduk,
-    StatusKawin,
+    // StatusKawin,
     Pekerjaan
   },
   data() {

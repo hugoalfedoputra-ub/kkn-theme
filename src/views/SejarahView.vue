@@ -81,7 +81,7 @@
                   </li>
                   <li>
                     <p class="text-base">
-                      <b>KASAN BAWI</b> memerintah pada Tahun 1874 – 1919 yanb berdomisili di Dukuh
+                      <b>KASAN BAWI</b> memerintah pada Tahun 1874 – 1919 yang berdomisili di Dukuh
                       Jetis.
                     </p>
                   </li>

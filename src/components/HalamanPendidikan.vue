@@ -68,14 +68,7 @@ export default {
         .scaleOrdinal()
         .domain(labels)
         .range([
-          '#ff6347',
-          '#4682b4',
-          '#32cd32',
-          '#ff69b4',
-          '#ff7f50',
-          '#dda0dd',
-          '#8a2be2',
-          '#7fffd4'
+          '#ff6347', '#4682b4', '#32cd32', '#ff69b4', '#ff7f50', '#dda0dd', '#8a2be2', '#7fffd4'
         ])
 
       const pie = d3.pie().value((d) => d)

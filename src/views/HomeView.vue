@@ -189,6 +189,7 @@ onMounted(() => {
                 :title="article.judul"
                 :date="getFirstWord(article.tgl_upload)"
                 :href="getUrl(article.id)"
+                class="duration-200 hover:scale-105"
               />
             </div>
           </div>
