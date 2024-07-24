@@ -7,8 +7,8 @@
         class="aspect-[0.7] w-[200px] rounded-xl"
         loading="lazy" />
       </div>
-      <p class="mt-4 text-sm font-semibold text-center text-orange-400">{{ name }}</p>
-      <p class="mt-4 text-sm font-bold text-center text-orange-400">{{ position }}</p>
+      <p class="mt-4 text-xl font-semibold text-center ">{{ name }}</p>
+      <p class=" text-sm font-bold text-center text-yellow-primary">{{ position }}</p>
     </article>
   </template>
   

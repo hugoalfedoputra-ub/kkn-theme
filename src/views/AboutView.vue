@@ -4,7 +4,7 @@
     <SejarahDesa />
     <ProfileDesa />
     <VisiMisi />
-    <PemerintahDesa />
+    <PeraturanDesa />
   </div>
   <FooterComponent />
 </template>
@@ -15,7 +15,7 @@ import FooterComponent from '../components/FooterComponent.vue'
 import ProfileDesa from '../components/ProfileDesa.vue'
 import SejarahDesa from '../components/SejarahDesa.vue'
 import VisiMisi from '../components/VisiMisi.vue'
-import PemerintahDesa from '../components/PemerintahDesa.vue'
+import PeraturanDesa from '../components/PeraturanDesa.vue'
 
 export default {
   name: 'App',
@@ -24,7 +24,7 @@ export default {
     SejarahDesa,
     ProfileDesa,
     VisiMisi,
-    PemerintahDesa,
+    PeraturanDesa,
     FooterComponent
   }
 }

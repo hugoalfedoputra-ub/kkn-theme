@@ -14,8 +14,8 @@ const navigation = [
     href: '/profile-desa',
     subItems: [
       { name: 'Sejarah Desa', href: '/profile-desa/sejarah' },
-      { name: 'Visi & Misi', href: '/profile-desa/visi-misi' },
       { name: 'Profil Desa', href: '/profile-desa/profile' },
+      { name: 'Visi & Misi', href: '/profile-desa/visi-misi' },
       { name: 'Peraturan Desa', href: '/profile-desa/peraturan-desa' }
     ]
   },

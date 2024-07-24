@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto px-4 py-8">
     <h1 class="text-4xl font-bold text-yellow-primary mb-8">Data Agama</h1>
-    <div class="grid grid-cols-4 gap-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       <Card
         v-for="(religion, index) in filteredReligions"
         :key="index"
@@ -31,7 +31,7 @@ export default {
         { title: 'Islam', count: 5271 },
         { title: 'Kristen', count: 30 },
         { title: 'Katolik', count: 7 },
-        { title: 'Hindu', count: 8 }
+        { title: 'Hindu', count: 8 },
         // { title: 'Budha', count: 999999 },
         // { title: 'Konghucu', count: 0 }
       ]

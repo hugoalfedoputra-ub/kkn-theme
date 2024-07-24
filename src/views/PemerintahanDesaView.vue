@@ -18,7 +18,7 @@
     <div
       class="flex flex-col flex-wrap justify-center content-center py-20 mt-5 max-md:px-5 max-md:max-w-full"
     >
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
         <StaffDesaCard
           v-for="(profile, index) in profiles"
           :key="index"
@@ -27,34 +27,6 @@
           :image-src="profile.imageSrc"
         />
       </div>
-
-      <!-- <div class="flex gap-5 justify-between max-md:flex-wrap max-md:max-w-full">
-        <StaffDesaCard
-          v-for="(profile, index) in profiles.slice(0, 4)"
-          :key="index"
-          :name="profile.name"
-          :position="profile.position"
-          :image-src="profile.imageSrc"
-        />
-      </div>
-      <div class="flex gap-10 justify-between max-md:flex-wrap max-md:max-w-full mt-12">
-        <StaffDesaCard
-          v-for="(profile, index) in profiles.slice(4, 8)"
-          :key="index + 4"
-          :name="profile.name"
-          :position="profile.position"
-          :image-src="profile.imageSrc"
-        />
-      </div>
-      <div class="flex gap-5 justify-between max-md:flex-wrap max-md:max-w-full mt-12">
-        <StaffDesaCard
-          v-for="(profile, index) in profiles.slice(8, 12)"
-          :key="index + 8"
-          :name="profile.name"
-          :position="profile.position"
-          :image-src="profile.imageSrc"
-        />
-      </div> -->
     </div>
   </section>
   <FooterComponent />
@@ -65,14 +37,12 @@ import NavBar from '../components/NavBar.vue'
 import StaffDesaCard from '../components/StaffDesaCard.vue'
 import FooterComponent from '../components/FooterComponent.vue'
 import profiles from '../assets/profiles.json'
-// import AparaturCard from '@/components/AparaturCard.vue'
 
 export default {
   name: 'PemerintahanDesa',
   components: {
     NavBar,
     StaffDesaCard,
-    // AparaturCard,
     FooterComponent
   },
   data() {

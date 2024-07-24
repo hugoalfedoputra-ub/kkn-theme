@@ -1,7 +1,7 @@
 <template>
   <main>
     <NavBar />
-    <div class="flex justify-center items-center">
+    <div class="flex justify-center items-center font-primary">
       <div class="w-[80%] px-2 py-16 sm:px-0">
         <TabGroup>
           <TabList class="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
@@ -16,8 +16,8 @@
                   'w-full rounded-lg py-2.5 text-sm font-medium leading-5',
                   'ring-white/60 ring-offset-2 ring-offset-green-primary focus:outline-none focus:ring-2',
                   selected
-                    ? 'bg-white text-yellow-primary shadow'
-                    : 'text-yellow-400 hover:bg-white/[0.12] hover:text-white'
+                    ? 'bg-white text-green-primary shadow'
+                    : 'text-yellow-primary hover:bg-white/[0.12] hover:text-white'
                 ]"
               >
                 {{ category }}
