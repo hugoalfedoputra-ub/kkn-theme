@@ -15,14 +15,14 @@ export default {
   data() {
     return {
       stats: [
-        { value: 100, label: 'Hektare Wilayah', color: 'text-red-400' },
-        { value: 70, label: 'Hektare Sawah', color: 'text-green-400' },
-        { value: 20, label: 'Hektare Tegalan', color: 'text-blue-400' }
+        { value: 41283, label: 'Hektare Wilayah', color: 'text-red-400' },
+        { value: 18290, label: 'Hektare Sawah', color: 'text-green-400' },
+        { value: 17071, label: 'Hektare Tegalan', color: 'text-blue-400' }
       ],
       additionalStats: [
-        { value: 5, label: 'Dusun', color: 'text-red-400' },
-        { value: 17, label: 'RW', color: 'text-green-400' },
-        { value: 60, label: 'RT', color: 'text-blue-400' }
+        { value: 4, label: 'Dusun', color: 'text-red-400' },
+        { value: 8, label: 'RW', color: 'text-green-400' },
+        { value: 28, label: 'RT', color: 'text-blue-400' }
       ]
     }
   },

@@ -143,20 +143,20 @@ const hideSubItems = () => {
       <div
         class="hidden lg:flex lg:gap-3 xl:gap-5 lg:justify-start lg:items-center text-base font-semibold"
       >
-        <button @click="toggleSearch" v-if="!isSearchActive">
+        <button @click="toggleSearch" v-if="!isSearchActive" class="hover:scale-105">
           <SearchIcon
             loading="lazy"
             class="shrink-0 my-auto w-6 aspect-square stroke-white lg:w-5.5 lg:h-5.5"
           />
         </button>
         <div
-          class="flex justify-center items-center p-2 bg-yellow-primary rounded-2xl h-8 xl:h-10 cursor-pointer hover:text-white"
+          class="flex justify-center items-center p-2 bg-yellow-primary rounded-2xl h-8 xl:h-10 cursor-pointer hover:text-white hover:scale-105"
         >
           <a
             href="https://blitar-butun.desa.id/siteman"
             rel="noopener noreferrer"
             target="_blank"
-            class="leading-6 text-xs xl:text-sm"
+            class="leading-6 text-xs xl:text-sm "
             >Login Admin</a
           >
         </div>

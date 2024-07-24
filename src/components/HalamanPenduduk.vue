@@ -17,7 +17,7 @@
       <StatusKawin />
     </div>
     <div class="mt-12">
-      <Pekerjaan />
+      <PekerjaanWarga />
     </div>
   </div>
 </template>
@@ -25,7 +25,7 @@
 <script>
 import UsiaPenduduk from './UsiaPenduduk.vue'
 import StatusKawin from './StatusKawin.vue'
-import Pekerjaan from './Pekerjaan.vue'
+import PekerjaanWarga from './PekerjaanWarga.vue'
 import StatisticCard from './StatisticCard.vue'
 
 export default {
@@ -33,7 +33,7 @@ export default {
     StatisticCard,
     UsiaPenduduk,
     StatusKawin,
-    Pekerjaan
+    PekerjaanWarga
   },
   data() {
     return {

@@ -7,7 +7,7 @@
           <h1 class="text-3xl text-yellow-primary text-center font-primary font-bold">
             Peraturan Desa
           </h1>
-          <div class="my-8 font-secondary">
+          <div class="my-8 font-secondary flex justify-center">
             <TabelPeraturan
               :peraturan-desa="peraturanDesa"
               :nomor-peraturan-desa="nomorPeraturanDesa"

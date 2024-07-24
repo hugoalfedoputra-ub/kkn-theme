@@ -13,11 +13,11 @@
             >
               <button
                 :class="[
-                  'w-full rounded-lg py-2.5 text-sm font-medium leading-5',
+                  'w-full rounded-lg py-2.5 text-sm leading-5',
                   'ring-white/60 ring-offset-2 ring-offset-green-primary focus:outline-none focus:ring-2',
                   selected
-                    ? 'bg-white text-green-primary shadow'
-                    : 'text-yellow-primary hover:bg-white/[0.12] hover:text-white'
+                    ? 'bg-white text-green-primary shadow font-bold'
+                    : 'text-green-primary hover:bg-white/[0.12] hover:text-white'
                 ]"
               >
                 {{ category }}

@@ -56,7 +56,7 @@
         @click="changePage(page)"
         :disabled="page === '...' || page === currentPage"
         class="mx-1"
-        :class="{ 'font-bold': page === currentPage, 'cursor-not-allowed': page === '...' }"
+        :class="{ 'px-2 rounded-3xl font-bold bg-green-primary text-white': page === currentPage, 'cursor-not-allowed': page === '...' }"
       >
         {{ page }}
       </button>
