@@ -18,13 +18,13 @@
     <div
       class="flex flex-col flex-wrap justify-center content-center py-20 mt-5 max-md:px-5 max-md:max-w-full"
     >
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <AparaturCard
-          v-for="(aparatur, index) in profiles"
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+        <StaffDesaCard
+          v-for="(profile, index) in profiles"
           :key="index"
-          :name="aparatur.name"
-          :position="aparatur.position"
-          :image-src="aparatur.imageSrc"
+          :name="profile.name"
+          :position="profile.position"
+          :image-src="profile.imageSrc"
         />
       </div>
 
@@ -62,17 +62,18 @@
 
 <script>
 import NavBar from '../components/NavBar.vue'
-// import StaffDesaCard from '../components/StaffDesaCard.vue'
+import StaffDesaCard from '../components/StaffDesaCard.vue'
 import FooterComponent from '../components/FooterComponent.vue'
 import profiles from '../assets/profiles.json'
-import AparaturCard from '@/components/AparaturCard.vue'
+// import AparaturCard from '@/components/AparaturCard.vue'
+// import StaffDesaCard from '../components/StaffDesaCard.vue'
 
 export default {
   name: 'PemerintahanDesa',
   components: {
     NavBar,
-    // StaffDesaCard,
-    AparaturCard,
+    StaffDesaCard,
+    // AparaturCard,
     FooterComponent
   },
   data() {
