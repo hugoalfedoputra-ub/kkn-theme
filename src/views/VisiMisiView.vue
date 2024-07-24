@@ -10,22 +10,15 @@
           <div class="my-8 font-secondary">
             <h2 class="font-bold">Visi</h2>
             <p class="text-base">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-              has been the industry's standard dummy text ever since the 1500s, when an unknown
-              printer took a galley of type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into electronic typesetting,
-              remaining essentially unchanged. It was popularised in the 1960s with the release of
-              Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+              {{ visi }}
             </p>
           </div>
           <div class="my-8 font-secondary">
             <h2 class="font-bold">Misi</h2>
             <p class="text-base">
-              It is a long established fact that a reader will be distracted by the readable content
-              of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-              more-or-less normal distribution of letters, as opposed to using 'Content here,
-              content here', making it look like readable English.
+              <span v-for="(item, index) in misi" :key="index">
+                {{ index + 1 }}. {{ item }}<br>
+              </span>
             </p>
           </div>
         </div>
@@ -45,6 +38,20 @@ export default {
   components: {
     NavBar,
     FooterComponent
+  },
+  data() {
+    return {
+      visi: "Terwujudnya Masyarakat Desa Butun yang sejahtera dan mandiri terdepan di bidang pertanian.",
+      misi: [
+        "Menerapkan Tata kelola Pemerintah dan Pelayanan Kepada Masyarakat secara transparan menuju Desa yang Mandiri.",
+        "Meningkatkan Pembangunan Infrastruktur yang profisional berkualitas dan berkelanjutan.",
+        "Pengembangan Sarana prasarana olahraga, Pelestarian Seni dan budaya.",
+        "Memberdayakan Kelembagaan masyarakat.",
+        "Meningkatkan Sarana dan Prasarana Umum.",
+        "Membentuk dan Mengembangkan BUMDesa serta penguatan Permodalan.",
+        "Mengoptimalkan sektor pertanian baik tahap produksi maupun tahap pengelolaan hasil."
+      ]
+    }
   }
 }
 </script>
