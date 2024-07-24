@@ -59,7 +59,7 @@ const submitComment = async () => {
 
     grecaptcha.reset()
   } catch (err) {
-    error.value = 'Gagal Mengirim Komentar'
+    error.value = 'Gagal Mengirim Komentar' + err
     console.log(error.value)
   }
 }
