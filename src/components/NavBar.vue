@@ -14,8 +14,8 @@ const navigation = [
     href: '/profile-desa',
     subItems: [
       { name: 'Sejarah Desa', href: '/profile-desa/sejarah' },
-      { name: 'Profil Desa', href: '/profile-desa/profile' },
       { name: 'Visi & Misi', href: '/profile-desa/visi-misi' },
+      { name: 'Profil Desa', href: '/profile-desa/profile' },
       { name: 'Peraturan Desa', href: '/profile-desa/peraturan-desa' }
     ]
   },
@@ -129,11 +129,11 @@ const hideSubItems = () => {
       </div>
 
       <!-- Search bar -->
-      <div v-else class="flex items-center w-full">
+      <div v-else class="hidden lg:flex items-center w-[70%]">
         <input
           type="text"
           placeholder="Search..."
-          class="w-full p-2 text-gray-900 rounded-lg focus:outline-none"
+          class="w-[90%] p-2 px-5 text-gray-900 rounded-3xl focus:outline-none"
         />
 
         <XMarkIcon @click="toggleSearch" class="w-8 text-white ml-4 cursor-pointer" />
@@ -190,22 +190,45 @@ const hideSubItems = () => {
         </div>
         <div class="mt-6 flow-root px-6">
           <div class="-my-6 divide-y divide-gray-500/10">
-            <div class="space-y-2 py-6">
+            <div 
+              v-for="(item, index) in navigation"
+              :key="item.name" 
+              class="space-y-2 py-1"
+              @mouseenter="showSubItems(index)"
+              @mouseleave="hideSubItems"
+            >
               <a
-                v-for="item in navigation"
-                :key="item.name"
                 :href="item.href"
                 :class="[
                   'font-secondary -mx-3 block rounded-lg px-3 py-2 text-base leading-7',
                   isActive(item.href) ? 'bg-yellow-primary' : 'text-white',
                   'hover:bg-yellow-primary'
                 ]"
-                >{{ item.name }}</a
+                >{{ item.name }}
+              </a>
+              <div
+                v-if="item.subItems && hoverIndex === index"
+                class="absolute right-0 p-4 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 font-primary font-semibold z-50"
+                @mouseenter="showSubItems(index)"
+                @mouseleave="hideSubItems"
               >
+                <div>
+                  <a
+                    v-for="subItem in item.subItems"
+                    :key="subItem.name"
+                    :href="subItem.href"
+                    class="block px-4 py-2 text-sm text-black hover:bg-green-primary hover:text-white rounded-xl"
+                  >
+                    {{ subItem.name }}
+                  </a>
+                </div>
+              </div>
             </div>
             <div class="py-6">
               <a
-                href="#"
+                href="https://blitar-butun.desa.id/siteman"
+                rel="noopener noreferrer"
+                target="_blank"
                 class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-bold leading-7 text-white hover:bg-yellow-primary"
                 >Login Admin</a
               >

@@ -117,7 +117,7 @@ onMounted(() => {
       ></div>
 
       <!-- Comments Section -->
-      <div v-if="commentsLoaded" class="mt-10">
+      <div v-if="commentsLoaded" class="mt-10 mx-4">
         <h2 class="text-2xl font-bold mb-5">Komentar</h2>
         <div v-for="comment in comments" :key="comment.id" class="mb-5 p-4 border rounded">
           <p class="font-bold">{{ comment.owner }}</p>
@@ -126,48 +126,50 @@ onMounted(() => {
         </div>
       </div>
 
-      <!-- Comment Form -->
-      <form @submit.prevent="submitComment" class="my-10 space-y-4">
-        <h3 class="text-xl font-bold">Beri Komentar</h3>
-        <div>
-          <label for="owner" class="block mb-2">Nama</label>
-          <input
-            v-model="newComment.owner"
-            id="owner"
-            type="text"
-            required
-            class="w-full p-2 border rounded"
-          />
-        </div>
-        <div>
-          <label for="email" class="block mb-2">Email</label>
-          <input
-            v-model="newComment.email"
-            id="email"
-            type="email"
-            required
-            class="w-full p-2 border rounded"
-          />
-        </div>
-        <div>
-          <label for="no_hp" class="block mb-2">No. HP</label>
-          <input v-model="newComment.no_hp" id="no_hp" type="text" required class="w-full p-2 border rounded">
-        </div>
-        <div>
-          <label for="komentar" class="block mb-2">Komentar</label>
-          <textarea
-            v-model="newComment.komentar"
-            id="komentar"
-            required
-            class="w-full p-2 border rounded"
-            rows="4"
-          ></textarea>
-        </div>
-        <div class="g-recaptcha" :data-sitekey="recaptchaSiteKey"></div>
-        <button type="submit" class="bg-yellow-primary text-white px-4 py-2 rounded">
-          Kirim Komentar
-        </button>
-      </form>
+      <div class="bg-gray-100 p-5 my-5 rounded-2xl drop-shadow-2xl">
+        <!-- Comment Form -->
+        <form @submit.prevent="submitComment" class="my-10 space-y-4 mx-4">
+          <h3 class="text-xl font-bold">Beri Komentar</h3>
+          <div>
+            <label for="owner" class="block mb-2">Nama</label>
+            <input
+              v-model="newComment.owner"
+              id="owner"
+              type="text"
+              required
+              class="w-full p-2 border rounded-2xl"
+            />
+          </div>
+          <div>
+            <label for="email" class="block mb-2">Email</label>
+            <input
+              v-model="newComment.email"
+              id="email"
+              type="email"
+              required
+              class="w-full p-2 border rounded-2xl"
+            />
+          </div>
+          <div>
+            <label for="no_hp" class="block mb-2">No. HP</label>
+            <input v-model="newComment.no_hp" id="no_hp" type="text" required class="w-full p-2 border rounded-2xl">
+          </div>
+          <div>
+            <label for="komentar" class="block mb-2">Komentar</label>
+            <textarea
+              v-model="newComment.komentar"
+              id="komentar"
+              required
+              class="w-full p-2 border rounded-2xl"
+              rows="4"
+            ></textarea>
+          </div>
+          <div class="g-recaptcha" :data-sitekey="recaptchaSiteKey"></div>
+          <button type="submit" class="bg-yellow-primary text-white px-4 py-2 rounded-2xl">
+            Kirim Komentar
+          </button>
+        </form>
+      </div>
     </div>
     <FooterComponent />
   </main>

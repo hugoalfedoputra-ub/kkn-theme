@@ -94,6 +94,9 @@ onMounted(() => {
       <div class="self-center my-10">
         <AparaturDesa />
       </div>
+      <div class="self-center text-[1rem] hover:text-white hover:scale-105">
+          <a href="/pemerintahan-desa" class="cursor-pointer ">Cek Selengkapnya...</a>
+      </div>
     </div>
     <div
       class="justify-end md:px-10 lg:px-20 py-0 md:py-10 w-full bg-white-secondary max-md:px-5 max-md:max-w-full"
