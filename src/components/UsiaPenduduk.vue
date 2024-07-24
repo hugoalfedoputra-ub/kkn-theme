@@ -97,8 +97,7 @@ const ageGroups = [
   { min: 50, max: 59 },
   { min: 60, max: 69 },
   { min: 70, max: 75 },
-  // { min: 80, max: 89 },
-  { min: 76, max: Infinity } // For "Lebih dari 75"
+  { min: 76, max: Infinity } 
 ];
 
 const result = ageGroups.map(group => {
@@ -112,7 +111,6 @@ const result = ageGroups.map(group => {
     const ageNumber = parseInt(age.split(' ')[0]);
     
     if (isNaN(ageNumber)) {
-      // Special handling for "Lebih dari 75"
       if (age === "Lebih dari 75") {
         male += ageData[age]["Laki-laki"];
         female += ageData[age]["Perempuan"];
@@ -126,8 +124,6 @@ const result = ageGroups.map(group => {
   return { ageGroup: `${minAge}-${maxAge}`, male, female };
 });
 
-console.log(result);
-
 export default {
   name: 'UsiaPenduduk',
   mounted() {
@@ -136,15 +132,15 @@ export default {
   methods: {
     createChart() {
       const data = result
-      const margin = { top: 20, right: 30, bottom: 40, left: 40 }
+      const margin = { top: 20, right: 30, bottom: 60, left: 40 }
       const width = 1175 - margin.left - margin.right
       const height = 400 - margin.top - margin.bottom
 
       const svg = d3
         .select('#age-chart')
         .append('svg')
-        .attr('width', width + margin.left + margin.right)
-        .attr('height', height + margin.top + margin.bottom)
+        .attr('viewBox', `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`) // Added viewBox
+        .attr('preserveAspectRatio', 'xMidYMid meet') 
         .style('border', '2px solid black')
         .append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`)
@@ -183,8 +179,48 @@ export default {
         .attr('y', (d) => y(d.female))
         .attr('width', x.bandwidth() / 2)
         .attr('height', (d) => height - y(d.female))
-        .attr('fill', '#ED5349')
+        .attr('fill', '#EE11BD')
+      
+      // Add legend
+      const legend = svg.append('g')
+        .attr('transform', `translate(0, ${height + 30})`);
+
+      legend.append('rect')
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr('width', 20)
+        .attr('height', 20)
+        .attr('fill', '#49A8ED');
+
+      legend.append('text')
+        .attr('x', 25)
+        .attr('y', 15)
+        .text('Laki-laki')
+        .style('font-size', '14px')
+        .attr('alignment-baseline', 'middle');
+
+      legend.append('rect')
+        .attr('x', 100)
+        .attr('y', 0)
+        .attr('width', 20)
+        .attr('height', 20)
+        .attr('fill', '#EE11BD');
+
+      legend.append('text')
+        .attr('x', 125)
+        .attr('y', 15)
+        .text('Perempuan')
+        .style('font-size', '14px')
+        .attr('alignment-baseline', 'middle');
     }
   }
 }
 </script>
+
+<style scoped>
+#age-chart {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+</style>
