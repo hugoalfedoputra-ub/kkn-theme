@@ -12,15 +12,17 @@
         </div>
         <div class="flex flex-col w-3/5 max-md:ml-0 max-md:w-full">
           <div class="flex flex-col self-stretch mt-10 text-black max-md:mt-10 max-md:max-w-full">
-            <h1 class="text-4xl font-bold text-yellow-primary max-md:max-w-full">Peraturan Desa</h1>
-            <p class="mt-7 text-lg max-md:max-w-full font-medium">
+            <h1 class="text-4xl font-bold text-yellow-primary max-md:max-w-full font-primary">
+              Peraturan Desa
+            </h1>
+            <p class="mt-7 text-lg max-md:max-w-full font-medium font-secondary">
               Informasi lengkap mengenai peraturan-peraturan yang berlaku pada Desa Butun
             </p>
             <a
               href="/profile-desa/peraturan-desa"
               class="flex gap-3 self-start px-3.5 py-3.5 mt-10 text-base text-center bg-yellow-primary rounded-3xl max-md:mt-10 duration-300 hover:scale-105"
             >
-              <span class="my-auto">Cek Selengkapnya</span>
+              <span class="my-auto font-secondary">Cek Selengkapnya</span>
               <IconArrowRight class="shrink-0 w-6 aspect-square" />
             </a>
           </div>

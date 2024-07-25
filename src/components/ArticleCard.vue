@@ -23,12 +23,12 @@ defineProps({
 
 <template>
   <div
-    class="bg-white-secondary rounded-2xl border-b-2 border-l-2 border-black border-solid shadow-sm max-md:max-w-full p-3"
+    class="bg-green-primary rounded-2xl border-b-2 border-l-2 border-black border-solid shadow-sm max-md:max-w-full p-3"
   >
     <a :href>
       <div class="flex gap-5 md:gap-10">
         <div class="w-[50%] md:w-[25%] max-md:ml-0">
-          <div class="grow w-full rounded-xl border border-black border-solid shadow-sm">
+          <div class="grow w-full rounded-xl border-solid shadow-sm">
             <img
               loading="lazy"
               :src
@@ -39,7 +39,7 @@ defineProps({
         </div>
         <div class="flex flex-col w-[55%] max-md:ml-0 max-md:w-full">
           <div class="flex flex-col my-auto justify-center items-start text-start">
-            <div class="text-md md:text-xl font-primary font-bold text-black">{{ title }}</div>
+            <div class="text-md md:text-xl font-primary font-bold text-white">{{ title }}</div>
             <div
               class="flex gap-0 items-center mt-2.5 font-secondary text-xs font-semibold text-yellow-primary"
             >

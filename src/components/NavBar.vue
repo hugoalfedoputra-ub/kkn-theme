@@ -3,7 +3,6 @@ import { ref } from 'vue'
 import { Dialog, DialogPanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 import { useRoute } from 'vue-router'
-import SearchIcon from '../components/icons/IconSearch.vue'
 
 const route = useRoute()
 
@@ -25,10 +24,6 @@ const isActive = (href) => {
 
 const isSearchActive = ref(false)
 
-const toggleSearch = () => {
-  isSearchActive.value = !isSearchActive.value
-}
-
 const showSubItems = (index) => {
   clearTimeout(hideTimeout.value)
   hoverIndex.value = index
@@ -44,7 +39,7 @@ const hideSubItems = () => {
 <template>
   <header class="inset-x-0 top-0 z-50 bg-green-primary font-primary">
     <nav
-      class="flex items-center justify-between mx-3 md:mx-8 lg:mx-4 lg:justify-around p-1 lg:px-8 lg:gap-10 xl:gap-20"
+      class="flex items-center justify-between mx-3 md:mx-8 lg:mx-4 lg:justify-between p-1 lg:px-8 lg:gap-10 xl:gap-20"
       aria-label="Global"
     >
       <!-- Logo Section -->
@@ -118,27 +113,10 @@ const hideSubItems = () => {
         </div>
       </div>
 
-      <!-- Search bar -->
-      <div v-else class="hidden lg:flex items-center w-[70%]">
-        <input
-          type="text"
-          placeholder="Search..."
-          class="w-[90%] p-2 px-5 text-gray-900 rounded-3xl focus:outline-none"
-        />
-
-        <XMarkIcon @click="toggleSearch" class="w-8 text-white ml-4 cursor-pointer" />
-      </div>
-
       <!-- Search Icon and Login Section -->
       <div
         class="hidden lg:flex lg:gap-3 xl:gap-5 lg:justify-start lg:items-center text-base font-semibold"
       >
-        <button @click="toggleSearch" v-if="!isSearchActive" class="hover:scale-105">
-          <SearchIcon
-            loading="lazy"
-            class="shrink-0 my-auto w-6 aspect-square stroke-white lg:w-5.5 lg:h-5.5"
-          />
-        </button>
         <div
           class="flex justify-center items-center p-2 bg-yellow-primary rounded-2xl h-8 xl:h-10 cursor-pointer hover:text-white hover:scale-105"
         >
@@ -146,7 +124,7 @@ const hideSubItems = () => {
             href="https://blitar-butun.desa.id/siteman"
             rel="noopener noreferrer"
             target="_blank"
-            class="leading-6 text-xs xl:text-sm "
+            class="leading-6 text-xs xl:text-sm"
             >Login Admin</a
           >
         </div>
@@ -180,9 +158,9 @@ const hideSubItems = () => {
         </div>
         <div class="mt-6 flow-root px-6">
           <div class="-my-6 divide-y divide-gray-500/10">
-            <div 
+            <div
               v-for="(item, index) in navigation"
-              :key="item.name" 
+              :key="item.name"
               class="space-y-2 py-1"
               @mouseenter="showSubItems(index)"
               @mouseleave="hideSubItems"
