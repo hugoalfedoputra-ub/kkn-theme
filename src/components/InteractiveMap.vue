@@ -9,7 +9,7 @@ export default {
   },
   data() {
     return {
-      zoom: 14
+      zoom: 15
     }
   }
 }

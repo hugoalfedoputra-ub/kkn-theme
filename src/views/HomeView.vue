@@ -94,6 +94,9 @@ onMounted(() => {
       <div class="self-center my-10">
         <AparaturDesa />
       </div>
+      <div class="self-center text-[1rem] hover:text-white hover:scale-105">
+          <a href="/pemerintahan-desa" class="cursor-pointer ">Cek Selengkapnya...</a>
+      </div>
     </div>
     <div
       class="justify-end md:px-10 lg:px-20 py-0 md:py-10 w-full bg-white-secondary max-md:px-5 max-md:max-w-full"
@@ -146,7 +149,7 @@ onMounted(() => {
           <div class="flex justify-center w-2/5 max-md:ml-0 max-md:w-full">
             <div class="flex flex-col p-5 max-md:px-5 max-md:max-w-full">
               <!-- Latest Article -->
-              <div class="h-auto max-w-full">
+              <div class="h-auto max-w-full duration-300 hover:scale-105">
                 <img
                   v-if="latestArticle"
                   :src="getImg(latestArticle.gambar)"
@@ -189,7 +192,7 @@ onMounted(() => {
                 :title="article.judul"
                 :date="getFirstWord(article.tgl_upload)"
                 :href="getUrl(article.id)"
-                class="duration-200 hover:scale-105"
+                class="duration-300 hover:scale-105"
               />
             </div>
           </div>

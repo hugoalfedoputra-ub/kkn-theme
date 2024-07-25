@@ -7,35 +7,11 @@
           <h1 class="text-3xl text-yellow-primary text-center font-primary font-bold">
             Peraturan Desa
           </h1>
-          <div class="my-8 font-secondary">
-            <h2 class="font-bold">Peraturan 1</h2>
-            <p class="text-base">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-              has been the industry's standard dummy text ever since the 1500s, when an unknown
-              printer took a galley of type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into electronic typesetting,
-              remaining essentially unchanged. It was popularised in the 1960s with the release of
-              Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-          </div>
-          <div class="my-8 font-secondary">
-            <h2 class="font-bold">Peraturan 2</h2>
-            <p class="text-base">
-              It is a long established fact that a reader will be distracted by the readable content
-              of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-              more-or-less normal distribution of letters, as opposed to using 'Content here,
-              content here', making it look like readable English.
-            </p>
-          </div>
-          <div class="my-8 font-secondary">
-            <h2 class="font-bold">Peraturan 3</h2>
-            <p class="text-base">
-              It is a long established fact that a reader will be distracted by the readable content
-              of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-              more-or-less normal distribution of letters, as opposed to using 'Content here,
-              content here', making it look like readable English.
-            </p>
+          <div class="my-8 font-secondary flex justify-center">
+            <TabelPeraturan
+              :peraturan-desa="peraturanDesa"
+              :nomor-peraturan-desa="nomorPeraturanDesa"
+            />
           </div>
         </div>
       </div>
@@ -47,12 +23,49 @@
 <script>
 import FooterComponent from '@/components/FooterComponent.vue'
 import NavBar from '@/components/NavBar.vue'
+import TabelPeraturan from '@/components/TabelPeraturan.vue'
 
 export default {
   name: 'PeraturanDesa',
   components: {
     NavBar,
+    TabelPeraturan,
     FooterComponent
+  },
+  data() {
+    return {
+      peraturanDesa: [
+        'Perdes APBDS Rancangan',
+        'Perdes Realisasi APBDS 2019',
+        'Perdes RKP 2021',
+        'Perdes Penegasan Status Penggunaan Tanah Desa',
+        'Perdes Pengelolaan Sampah',
+        'Perdes Lingkungan Hidup',
+        'Perdes Lingkungan Hidup',
+        'Perdes Larangan Nyetrum dan Mengobati Ikan di Sungai',
+        'Perdes RPJMDes',
+        'Perdes Perubahan Pengurus SumDes Rukun Santoso',
+        'Perdes Perubahan RKP I Tahun 2019',
+        'Perdes APBDES',
+        'Perdes Kewenangan'
+      ],
+      nomorPeraturanDesa: [
+        '01 Tahun 2020',
+        '02 Tahun 2020',
+        '03 Tahun 2020',
+        '04 Tahun 2020',
+        '05 Tahun 2020',
+        '06 Tahun 2020',
+        '07 Tahun 2020',
+        '08 Tahun 2020',
+        '09 Tahun 2020',
+        '10 Tahun 2020',
+        '11 Tahun 2020',
+        '12 Tahun 2020',
+        '13 Tahun 2020',
+        '14 Tahun 2020'
+      ]
+    }
   }
 }
 </script>

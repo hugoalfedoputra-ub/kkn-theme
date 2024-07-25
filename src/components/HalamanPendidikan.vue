@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto px-4 py-8">
     <h1 class="text-4xl font-bold text-yellow-primary mb-8">Pendidikan</h1>
-    <div class="grid grid-cols-4 gap-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       <statistic-card
         v-for="(pendidikan, index) in Pendidikan"
         :key="index"
@@ -50,7 +50,7 @@ export default {
       )
 
       const width = 1200
-      const height = 600 // Increased height
+      const height = 600
       const margin = 40
 
       const radius = Math.min(width, height) / 2 - margin
@@ -58,8 +58,8 @@ export default {
       const svg = d3
         .select('#chart')
         .append('svg')
-        .attr('width', width)
-        .attr('height', height)
+        .attr('viewBox', `0 0 ${width} ${height}`) 
+        .attr('preserveAspectRatio', 'xMidYMid meet') 
         .style('border', '2px solid black')
         .append('g')
         .attr('transform', `translate(${width / 2}, ${height / 2})`)
@@ -68,7 +68,7 @@ export default {
         .scaleOrdinal()
         .domain(labels)
         .range([
-          '#ff6347', '#4682b4', '#32cd32', '#ff69b4', '#ff7f50', '#dda0dd', '#8a2be2', '#7fffd4'
+          '#004F2D', '#4682b4', '#32cd32', '#49ED59', '#EDAE49', '#EE9511', '#EEE16E', '#7fffd4'
         ])
 
       const pie = d3.pie().value((d) => d)
@@ -91,20 +91,18 @@ export default {
         .attr('fill', (d, i) => color(labels[i]))
         .style('opacity', 0.7)
 
-      // Function to check for label overlap
       function checkOverlap(current, others) {
         for (let i = 0; i < others.length; i++) {
           if (others[i] !== current) {
             const dx = current.x - others[i].x
             const dy = current.y - others[i].y
             const distance = Math.sqrt(dx * dx + dy * dy)
-            if (distance < 50) return true // Adjust this value to control spacing
+            if (distance < 50) return true 
           }
         }
         return false
       }
 
-      // Calculate label positions
       const labelPositions = data_ready.map((d) => {
         const pos = outerArc.centroid(d)
         const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2
@@ -112,7 +110,6 @@ export default {
         return { x: pos[0], y: pos[1], angle: midAngle }
       })
 
-      // Adjust label positions to avoid overlap
       labelPositions.forEach((pos, i) => {
         let angle = pos.angle
         let radius = 1.15
@@ -159,8 +156,8 @@ export default {
   max-width: 1200px;
 }
 #chart {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+  display: flex; 
+  justify-content: center; 
+  width: 100%; 
 }
 </style>
