@@ -2,7 +2,7 @@
   <div class="max-w-[80rem] mx-auto px-4 py-8">
     <h1 class="text-4xl font-bold text-yellow-primary mb-8">Kependudukan</h1>
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-      <statistic-card
+      <Card
         v-for="(penduduk, index) in Penduduk"
         :key="index"
         :title="penduduk.title"
@@ -23,16 +23,16 @@
 </template>
 
 <script>
+import Card from './StatisticCard.vue'
 import UsiaPenduduk from './UsiaPenduduk.vue'
 import StatusKawin from './StatusKawin.vue'
 import Pekerjaan from './Pekerjaan.vue'
-import StatisticCard from './StatisticCard.vue'
 
 export default {
   components: {
-    StatisticCard,
+    Card,
     UsiaPenduduk,
-    StatusKawin,
+    // StatusKawin,
     Pekerjaan
   },
   data() {

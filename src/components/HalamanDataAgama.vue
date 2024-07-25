@@ -31,7 +31,7 @@ export default {
         { title: 'Islam', count: 5271 },
         { title: 'Kristen', count: 30 },
         { title: 'Katolik', count: 7 },
-        { title: 'Hindu', count: 8 }
+        { title: 'Hindu', count: 8 },
         // { title: 'Budha', count: 999999 },
         // { title: 'Konghucu', count: 0 }
       ]

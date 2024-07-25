@@ -151,6 +151,7 @@ onMounted(() => {
         </div>
         <div>
           <label for="no_hp" class="block mb-2">No. HP</label>
+<<<<<<< HEAD
           <input
             v-model="newComment.no_hp"
             id="no_hp"
@@ -158,6 +159,9 @@ onMounted(() => {
             required
             class="w-full p-2 border rounded"
           />
+=======
+          <input v-model="newComment.no_hp" id="no_hp" type="text" required class="w-full p-2 border rounded">
+>>>>>>> origin/dev
         </div>
         <div>
           <label for="komentar" class="block mb-2">Komentar</label>

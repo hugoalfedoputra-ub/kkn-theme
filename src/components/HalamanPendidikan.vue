@@ -2,7 +2,7 @@
   <div class="container mx-auto px-4 py-8">
     <h1 class="text-4xl font-bold text-yellow-primary mb-8">Pendidikan</h1>
     <div class="grid grid-cols-4 gap-6">
-      <statistic-card
+      <Card
         v-for="(pendidikan, index) in Pendidikan"
         :key="index"
         :title="pendidikan.title"
@@ -19,11 +19,11 @@
 
 <script>
 import * as d3 from 'd3'
-import StatisticCard from './StatisticCard.vue'
+import Card from './StatisticCard.vue'
 
 export default {
   components: {
-    StatisticCard
+    Card
   },
   data() {
     return {
@@ -68,14 +68,7 @@ export default {
         .scaleOrdinal()
         .domain(labels)
         .range([
-          '#ff6347',
-          '#4682b4',
-          '#32cd32',
-          '#ff69b4',
-          '#ff7f50',
-          '#dda0dd',
-          '#8a2be2',
-          '#7fffd4'
+          '#ff6347', '#4682b4', '#32cd32', '#ff69b4', '#ff7f50', '#dda0dd', '#8a2be2', '#7fffd4'
         ])
 
       const pie = d3.pie().value((d) => d)
@@ -127,7 +120,7 @@ export default {
           angle += 0.1 * (pos.angle < Math.PI ? 1 : -1)
           radius += 0.05
           pos.x = radius * (-width / 4) * (angle < Math.PI ? 1 : -1)
-          pos.y = radius * (height / 1.5) * Math.sin(angle)
+          pos.y = radius * (height /1.5) * Math.sin(angle)
         }
       })
 

@@ -87,6 +87,8 @@ onMounted(() => {
         </div>
       </div>
     </div>
+    <!-- <AparaturDesa /> -->
+
     <div
       class="flex flex-col justify-center px-5 py-10 w-full text-4xl font-bold text-center text-yellow-primary bg-emerald-900 max-md:max-w-full"
     >

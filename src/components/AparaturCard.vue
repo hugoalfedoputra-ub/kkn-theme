@@ -1,26 +1,53 @@
-<script setup>
-defineProps({
-  name: {
-    type: String,
-    required: true
+<template>
+  <Carousel>
+    <Slide v-for="slide in 10" :key="slide">
+      <div class="carousel__item">{{ slide }}</div>
+    </Slide>
+
+    <template #addons>
+      <Navigation />
+      <Pagination />
+    </template>
+  </Carousel>
+</template>
+
+<script>
+import { defineComponent } from 'vue'
+import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
+
+import 'vue3-carousel/dist/carousel.css'
+
+export default defineComponent({
+  name: 'Basic',
+  components: {
+    Carousel,
+    Slide,
+    Pagination,
+    Navigation,
   },
-  position: {
-    type: String,
-    required: true
-  },
-  imageSrc: {
-    type: String,
-    required: true
-  }
 })
 </script>
 
-<template>
-  <div class="flex flex-col items-center gap-5 mt-10">
-    <img :src="imageSrc" :alt="name" class="aspect-[0.7] w-[15rem] rounded-2xl object-contain" />
-    <div>
-      <p class="text-lg text-yellow-primary font-bold">{{ name }}</p>
-      <p class="text-xs">{{ position }}</p>
-    </div>
-  </div>
-</template>
+<style>
+.carousel__item {
+  min-height: 200px;
+  width: 100%;
+  background-color: var(--vc-clr-primary);
+  color: var(--vc-clr-white);
+  font-size: 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel__slide {
+  padding: 10px;
+}
+
+.carousel__prev,
+.carousel__next {
+  box-sizing: content-box;
+  border: 5px solid white;
+}
+</style>
