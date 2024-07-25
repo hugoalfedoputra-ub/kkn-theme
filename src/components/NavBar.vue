@@ -9,16 +9,6 @@ const route = useRoute()
 
 const navigation = [
   { name: 'Home', href: '/' },
-  {
-    name: 'Profile Desa',
-    href: '/profile-desa',
-    subItems: [
-      { name: 'Sejarah Desa', href: '/profile-desa/sejarah' },
-      { name: 'Visi & Misi', href: '/profile-desa/visi-misi' },
-      { name: 'Profil Desa', href: '/profile-desa/profile' },
-      { name: 'Peraturan Desa', href: '/profile-desa/peraturan-desa' }
-    ]
-  },
   { name: 'Pemerintahan Desa', href: '/pemerintahan-desa' },
   { name: 'Berita Desa', href: '/berita-desa' },
   { name: 'Statistik', href: '/statistik' },

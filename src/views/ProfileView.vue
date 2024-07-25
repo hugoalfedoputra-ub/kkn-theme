@@ -55,9 +55,9 @@
           />
         </div>
       </div>
-      <h2 class="self-stretch mt-28 text-4xl font-bold text-center text-orange-400 max-md:mt-10 max-md:max-w-full">
+      <a class="self-stretch mt-28 text-4xl font-bold text-center text-orange-400 max-md:mt-10 max-md:max-w-full" href="/peta-desa">
         Peta Desa
-      </h2>
+      </a>
       <InteractiveMap
         loading="lazy"
         class="w-1/2 h-1/2 lg:w-[25rem] lg:h-[20rem] xl:w-[40rem] xl:h-[30rem] rounded-2xl"
