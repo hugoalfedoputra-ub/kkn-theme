@@ -22,6 +22,7 @@ const articlesLoaded = ref(false)
 const articleIsLoading = ref(false)
 
 const pamong = ref([])
+const pamongLen = ref([])
 const pamongLoaded = ref(false)
 const pamongIsLoading = ref(false)
 
@@ -51,8 +52,11 @@ const fetchPamong = async () => {
   pamongIsLoading.value = true
   try {
     const response = await axios.get(url + 'twebdesapamong')
-    console.log(response.data)
+    // console.log(response.data.length)
     pamong.value = response.data
+    for (let i = 0; i < response.data.length; i++) {
+      pamongLen.value.push(i)
+    }
   } catch (err) {
     error.value = 'Pamong Gagal Dimuat'
   } finally {
@@ -77,7 +81,7 @@ onMounted(() => {
   // console.log(`url : `, url)
   fetchArticles()
   fetchPamong()
-  // console.log(pamong.value)
+  // console.log(pamongLen.value)
 })
 </script>
 
@@ -119,15 +123,15 @@ onMounted(() => {
     </section>
     <VideoButun />
     <section
-      class="flex flex-col justify-center px-5 py-10 w-full text-4xl font-bold text-center text-yellow-primary bg-emerald-900 max-md:max-w-full"
+      class="flex flex-col justify-between px-5 py-10 w-full h-full text-4xl font-bold text-center text-yellow-primary bg-emerald-900 max-md:max-w-full"
     >
-      <div class="self-center font-primary">Aparatur Desa</div>
+      <div class="font-primary">Aparatur Desa</div>
       <!-- Loading -->
-      <div v-if="pamongIsLoading" class="flex justify-center items-center mt-24">
-        <FwbSpinner color="yellow" class="w-48 h-48 mr-2"></FwbSpinner>
+      <div v-if="pamongIsLoading" class="absolute self-center my-44">
+        <FwbSpinner color="yellow" class="w-48 h-48"></FwbSpinner>
       </div>
-      <div class="self-center my-10">
-        <AparaturDesa :profiles="pamong" />
+      <div class="h-[400px] flex justify-center my-8">
+        <AparaturDesa :profiles="pamong" :profilesLen="pamongLen" />
       </div>
       <div
         class="flex flex-col items-center text-[1rem] font-secondary hover:scale-105 duration-300 group"

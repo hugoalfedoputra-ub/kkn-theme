@@ -16,11 +16,13 @@ defineProps({
 </script>
 
 <template>
-  <div class="flex flex-col items-center gap-5 mt-10">
-    <img :src="imageSrc" :alt="name" class="aspect-[0.7] w-[15rem] rounded-2xl object-contain" />
+  <div
+    class="flex flex-col items-center gap-5 bg-white p-5 rounded-xl h-full min-w-[160] max-w-[160px] md:min-w-[250px] md:max-w-[250px]"
+  >
+    <img :src="imageSrc" :alt="name" class="rounded-xl object-contain" />
     <div>
-      <p class="text-lg text-black font-bold font-primary">{{ name }}</p>
-      <p class="text-xs font-secondary">{{ position }}</p>
+      <p class="text-lg leading-tight text-black font-bold font-primary">{{ name }}</p>
+      <p class="text-xs font-secondary mt-2">{{ position }}</p>
     </div>
   </div>
 </template>

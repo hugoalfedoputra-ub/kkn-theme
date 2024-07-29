@@ -47,7 +47,7 @@
     </div>
 
     <!-- Pagination -->
-    <div class="self-center my-8 font-primary text-xl font-bold text-yellow-primary max-md:mt-10">
+    <div class="self-center my-8 text-xl font-bold text-yellow-primary max-md:mt-10 font-secondary">
       <button @click="prevPage" :disabled="currentPage === 1" class="mr-2">Previous</button>
 
       <button

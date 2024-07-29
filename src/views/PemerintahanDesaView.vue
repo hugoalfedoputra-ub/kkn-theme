@@ -13,12 +13,11 @@
 
   <section class="flex flex-col px-16 py-16 max-md:px-5">
     <h1 class="self-center text-4xl font-bold text-center text-yellow-primary max-md:max-w-full">
-      Pemerintah Desa
+      Pemerintahan Desa
     </h1>
     <div
       class="flex flex-col flex-wrap justify-center content-center py-20 mt-5 max-md:px-5 max-md:max-w-full"
     >
-
       <!-- Loading -->
       <div v-if="pamongIsLoading" class="flex justify-center items-center mt-24">
         <FwbSpinner color="yellow" class="w-48 h-48 mr-2"></FwbSpinner>
@@ -77,5 +76,4 @@ onMounted(() => {
   console.log(pamong.value)
   fetchPamong()
 })
-
 </script>
