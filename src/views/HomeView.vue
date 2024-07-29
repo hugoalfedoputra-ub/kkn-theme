@@ -14,6 +14,7 @@ import ProfileDesa from '../components/ProfileDesa.vue'
 import SejarahDesa from '../components/SejarahDesa.vue'
 import VisiMisi from '../components/VisiMisi.vue'
 import PeraturanDesa from '../components/PeraturanDesa.vue'
+import VideoButun from '../components/VideoButun.vue'
 
 const url = import.meta.env.VITE_BASE_API_URL
 const articles = ref([])
@@ -63,50 +64,48 @@ onMounted(() => {
   <NavBar />
   <main>
     <section
-      class="flex flex-col justify-center w-full text-3xl font-semibold text-yellow-primary bg-white max-md:max-w-full font-primary"
+    class="flex flex-col justify-center w-full text-3xl font-semibold text-yellow-primary bg-white max-md:max-w-full font-primary brightness-75 parallax"
+  >
+    <div
+      class="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 w-full min-h-[650px] max-md:px-5 max-md:max-w-full "
     >
       <div
-        class="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 w-full min-h-[650px] max-md:px-5 max-md:max-w-full"
+        class="flex relative flex-col justify-center px-5 py-2 mt-28 mb-11 max-w-full w-[569px] max-md:px-5 max-md:my-10 parallax-content"
       >
         <img
           loading="lazy"
-          src="/images/cover_landing_page.jpg"
-          class="object-cover absolute inset-0 size-full brightness-[45%]"
+          src="/images/logo_butun.png"
+          class="self-center max-w-full aspect-square w-[100px] md:w-[120px] lg:w-[140px]"
         />
-        <div
-          class="flex relative flex-col justify-center px-5 py-2 mt-28 mb-11 max-w-full w-[569px] max-md:px-5 max-md:my-10"
-        >
-          <img
-            loading="lazy"
-            src="/images/logo_butun.png"
-            class="self-center max-w-full aspect-square w-[100px] md:w-[120px] lg:w-[140px]"
-          />
-          <div class="mt-5 text-4xl font-extrabold text-center max-md:text-4xl font-primary">
-            Butun
-          </div>
-          <div class="text-xl md:text-2xl self-center font-secondary">
-            Kec. Gandusari, Kab. Blitar
-          </div>
-          <div class="text-xl md:text-2xl self-center font-secondary">Provinsi Jawa Timur</div>
+        <div class="mt-5 text-4xl font-extrabold text-center max-md:text-4xl font-primary">
+          Butun
+        </div>
+        <div class="text-xl md:text-2xl self-center font-secondary">
+          Kec. Gandusari, Kab. Blitar
+        </div>
+        <div class="text-xl md:text-2xl self-center font-secondary">
+          Provinsi Jawa Timur
         </div>
       </div>
-    </section>
-    <section
-      class="flex flex-col justify-center px-5 py-10 w-full text-4xl font-bold text-center text-yellow-primary bg-emerald-900 max-md:max-w-full"
+    </div>
+  </section>
+  <section
+    class="flex flex-col justify-center px-5 py-10 w-full text-4xl font-bold text-center text-yellow-primary bg-emerald-900 max-md:max-w-full"
+  >
+    <div class="self-center font-primary">Aparatur Desa</div>
+    <div class="self-center my-10">
+      <AparaturDesa />
+    </div>
+    <div
+      class="flex flex-col items-center text-[1rem] font-secondary hover:scale-105 duration-300 group"
     >
-      <div class="self-center font-primary">Aparatur Desa</div>
-      <div class="self-center my-10">
-        <AparaturDesa />
-      </div>
-      <div
-        class="flex flex-col items-center text-[1rem] font-secondary hover:scale-105 duration-300 group"
+      <a href="/pemerintahan-desa" class="cursor-pointer group-hover:text-white"
+        >Cek Selengkapnya...</a
       >
-        <a href="/pemerintahan-desa" class="cursor-pointer group-hover:text-white"
-          >Cek Selengkapnya...</a
-        >
-        <div class="w-14 h-1 rounded-2xl bg-yellow-primary group-hover:bg-white"></div>
-      </div>
-    </section>
+      <div class="w-14 h-1 rounded-2xl bg-yellow-primary group-hover:bg-white"></div>
+    </div>
+  </section>
+    <VideoButun/>
     <section
       class="flex flex-col text-start px-2.5 py-10 w-full bg-white-secondary max-md:max-w-full"
     >
@@ -227,3 +226,30 @@ onMounted(() => {
   </main>
   <FooterComponent />
 </template>
+
+<style scoped>
+.parallax {
+  background-image: url('/images/cover_landing_page.jpg');
+  min-height: 650px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 1;
+}
+.parallax::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45); /* Adjust the brightness here */
+  z-index: -1;
+}
+</style>
