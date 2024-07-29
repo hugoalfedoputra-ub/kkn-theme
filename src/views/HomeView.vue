@@ -14,6 +14,7 @@ import ProfileDesa from '../components/ProfileDesa.vue'
 import SejarahDesa from '../components/SejarahDesa.vue'
 import VisiMisi from '../components/VisiMisi.vue'
 import PeraturanDesa from '../components/PeraturanDesa.vue'
+import VideoButun from '../components/VideoButun.vue'
 
 const url = import.meta.env.VITE_BASE_API_URL
 const articles = ref([])
@@ -84,7 +85,10 @@ onMounted(() => {
   <NavBar />
   <main>
     <section
-      class="flex flex-col justify-center w-full text-3xl font-semibold text-yellow-primary bg-white max-md:max-w-full font-primary"
+    class="flex flex-col justify-center w-full text-3xl font-semibold text-yellow-primary bg-white max-md:max-w-full font-primary brightness-75 parallax"
+  >
+    <div
+      class="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 w-full min-h-[650px] max-md:px-5 max-md:max-w-full "
     >
       <div
         class="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 w-full min-h-[650px] max-md:px-5 max-md:max-w-full"
@@ -252,3 +256,30 @@ onMounted(() => {
   </main>
   <FooterComponent />
 </template>
+
+<style scoped>
+.parallax {
+  background-image: url('/images/cover_landing_page.jpg');
+  min-height: 650px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 1;
+}
+.parallax::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45); /* Adjust the brightness here */
+  z-index: -1;
+}
+</style>

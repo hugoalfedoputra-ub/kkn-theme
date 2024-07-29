@@ -22,7 +22,7 @@ const isActive = (href) => {
 </script>
 
 <template>
-  <header class="inset-x-0 top-0 z-50 bg-green-primary font-primary">
+  <header class="inset-x-0 top-0 z-[100] sticky bg-green-primary font-primary">
     <nav
       class="flex items-center justify-between mx-3 md:mx-8 lg:mx-4 lg:justify-between p-1 lg:px-8 lg:gap-10 xl:gap-20"
       aria-label="Global"
