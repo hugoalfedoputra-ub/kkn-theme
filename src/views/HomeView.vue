@@ -19,6 +19,11 @@ const url = import.meta.env.VITE_BASE_API_URL
 const articles = ref([])
 const articlesLoaded = ref(false)
 const articleIsLoading = ref(false)
+
+const pamong = ref([])
+const pamongLoaded = ref(false)
+const pamongIsLoading = ref(false)
+
 const error = ref(null)
 
 const latestArticle = computed(() => articles.value[0] || null)
@@ -31,13 +36,27 @@ const fetchArticles = async (page = 1) => {
         page
       }
     })
-    console.log(response.data.data)
+    // console.log(response.data.data)
     articles.value = response.data.data
   } catch (err) {
     error.value = 'Artikel Gagal Dimuat'
   } finally {
     articlesLoaded.value = true
     articleIsLoading.value = false
+  }
+}
+
+const fetchPamong = async () => {
+  pamongIsLoading.value = true
+  try {
+    const response = await axios.get(url + 'twebdesapamong')
+    console.log(response.data)
+    pamong.value = response.data
+  } catch (err) {
+    error.value = 'Pamong Gagal Dimuat'
+  } finally {
+    pamongLoaded.value = true
+    pamongIsLoading.value = false
   }
 }
 
@@ -54,8 +73,10 @@ const getUrl = (id) => {
 }
 
 onMounted(() => {
-  console.log(`url : `, url)
+  // console.log(`url : `, url)
   fetchArticles()
+  fetchPamong()
+  // console.log(pamong.value)
 })
 </script>
 
@@ -95,8 +116,12 @@ onMounted(() => {
       class="flex flex-col justify-center px-5 py-10 w-full text-4xl font-bold text-center text-yellow-primary bg-emerald-900 max-md:max-w-full"
     >
       <div class="self-center font-primary">Aparatur Desa</div>
+        <!-- Loading -->
+        <div v-if="pamongIsLoading" class="flex justify-center items-center mt-24">
+          <FwbSpinner color="yellow" class="w-48 h-48 mr-2"></FwbSpinner>
+        </div>
       <div class="self-center my-10">
-        <AparaturDesa />
+        <AparaturDesa :profiles="pamong" />
       </div>
       <div
         class="flex flex-col items-center text-[1rem] font-secondary hover:scale-105 duration-300 group"

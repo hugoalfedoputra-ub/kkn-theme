@@ -2,61 +2,61 @@
   {
     "name": "Imam Darmawan",
     "position": "Kepala Desa",
-    "imageSrc": "/images/pak_bagong.jpg"
+    "imageSrc": "/v2/images/pak_bagong.jpg"
   },
   {
     "name": "Arik Wiji Lestari",
     "position": "Sekretaris Desa",
-    "imageSrc": "/images/ArikWijiLestari.png"
+    "imageSrc": "/v2/images/ArikWijiLestari.png"
   },
   {
     "name": "Lestari Utami",
     "position": "Kaur Umum",
-    "imageSrc": "/images/LestariUtami.png"
+    "imageSrc": "/v2/images/LestariUtami.png"
   },
   {
     "name": "Ika Puspita Sari",
     "position": "Kaur Keuangan",
-    "imageSrc": "/images/IkaPuspitasari.png"
+    "imageSrc": "/v2/images/IkaPuspitasari.png"
   },
   {
     "name": "Endri Wido Wahyudi",
     "position": "Kaur Perencanaan",
-    "imageSrc": "/images/EndriWidoWahyudi.png"
+    "imageSrc": "/v2/images/EndriWidoWahyudi.png"
   },
   {
     "name": "Siti Muawanah",
     "position": "Kasi Pemerintahan",
-    "imageSrc": "/images/SitiMuawanah.png"
+    "imageSrc": "/v2/images/SitiMuawanah.png"
   },
   {
     "name": "Dewi Yuliana",
     "position": "Kasi Kesejahteraan",
-    "imageSrc": "/images/DewiYuliana.png"
+    "imageSrc": "/v2/images/DewiYuliana.png"
   },
   {
     "name": "Mesenin",
     "position": "Kasi Pelayanan",
-    "imageSrc": "/images/Mesenin.png"
+    "imageSrc": "/v2/images/Mesenin.png"
   },
   {
     "name": "Rama Khaleda Widana",
     "position": "Kepala Dusun Butun",
-    "imageSrc": "/images/RamaKhailedaWidana.png"
+    "imageSrc": "/v2/images/RamaKhailedaWidana.png"
   },
   {
     "name": "Muryono",
     "position": "Kepala Dusun Jetis",
-    "imageSrc": "/images/Muryono.png"
+    "imageSrc": "/v2/images/Muryono.png"
   },
   {
     "name": "Suroto",
     "position": "Kepala Dusun Baos",
-    "imageSrc": "/images/Suroto.png"
+    "imageSrc": "/v2/images/Suroto.png"
   },
   {
     "name": "Supriyono",
     "position": "Kepala Dusun Balong",
-    "imageSrc": "/images/Supriyono.png"
+    "imageSrc": "/v2/images/Supriyono.png"
   }
 ]
