@@ -117,4 +117,36 @@ autoplay()
       </div>
     </div>
   </section>
+
+  <!-- Old code (kept for comparison sakes) -->
+  <!-- <div class="w-fit mx-auto relative">
+      <input
+        v-for="(aparatur, index) in profiles"
+        :key="'radio-' + index"
+        :id="'article-' + bases[index]"
+        type="radio"
+        name="slider"
+        class="sr-only"
+        :class="'peer/' + bases[index]"
+        :checked="index === 0"
+      />
+
+      <div
+        v-for="(aparatur, index) in profiles"
+        :key="'card-' + index"
+        :class="generateClasses(index)"
+      >
+        <label class="absolute inset-0" :for="'article-' + bases[index]">
+          <span class="sr-only text-black">Focus on the big picture</span>
+        </label>
+        <article class="bg-white p-6 rounded-lg shadow-2xl">
+          tot{{ index }}
+          <AparaturCard
+            :name="aparatur.pamong_nama"
+            :position="aparatur.jabatan_nama"
+            :image-src="getImg(aparatur.foto)"
+          />
+        </article>
+      </div>
+    </div> -->
 </template>
