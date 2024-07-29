@@ -85,45 +85,47 @@ onMounted(() => {
   <NavBar />
   <main>
     <section
-    class="flex flex-col justify-center w-full text-3xl font-semibold text-yellow-primary bg-white max-md:max-w-full font-primary brightness-75 parallax"
-  >
-    <div
-      class="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 w-full min-h-[650px] max-md:px-5 max-md:max-w-full "
+      class="flex flex-col justify-center w-full text-3xl font-semibold text-yellow-primary bg-white max-md:max-w-full font-primary brightness-75 parallax"
     >
       <div
         class="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 w-full min-h-[650px] max-md:px-5 max-md:max-w-full"
       >
-        <img
-          loading="lazy"
-          src="/images/cover_landing_page.jpg"
-          class="object-cover absolute inset-0 size-full brightness-[45%]"
-        />
         <div
-          class="flex relative flex-col justify-center px-5 py-2 mt-28 mb-11 max-w-full w-[569px] max-md:px-5 max-md:my-10"
+          class="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 w-full min-h-[650px] max-md:px-5 max-md:max-w-full"
         >
           <img
             loading="lazy"
-            src="/images/logo_butun.png"
-            class="self-center max-w-full aspect-square w-[100px] md:w-[120px] lg:w-[140px]"
+            src="/images/cover_landing_page.jpg"
+            class="object-cover absolute inset-0 size-full brightness-[45%]"
           />
-          <div class="mt-5 text-4xl font-extrabold text-center max-md:text-4xl font-primary">
-            Butun
+          <div
+            class="flex relative flex-col justify-center px-5 py-2 mt-28 mb-11 max-w-full w-[569px] max-md:px-5 max-md:my-10"
+          >
+            <img
+              loading="lazy"
+              src="/images/logo_butun.png"
+              class="self-center max-w-full aspect-square w-[100px] md:w-[120px] lg:w-[140px]"
+            />
+            <div class="mt-5 text-4xl font-extrabold text-center max-md:text-4xl font-primary">
+              Butun
+            </div>
+            <div class="text-xl md:text-2xl self-center font-secondary">
+              Kec. Gandusari, Kab. Blitar
+            </div>
+            <div class="text-xl md:text-2xl self-center font-secondary">Provinsi Jawa Timur</div>
           </div>
-          <div class="text-xl md:text-2xl self-center font-secondary">
-            Kec. Gandusari, Kab. Blitar
-          </div>
-          <div class="text-xl md:text-2xl self-center font-secondary">Provinsi Jawa Timur</div>
         </div>
       </div>
     </section>
+    <VideoButun />
     <section
       class="flex flex-col justify-center px-5 py-10 w-full text-4xl font-bold text-center text-yellow-primary bg-emerald-900 max-md:max-w-full"
     >
       <div class="self-center font-primary">Aparatur Desa</div>
-        <!-- Loading -->
-        <div v-if="pamongIsLoading" class="flex justify-center items-center mt-24">
-          <FwbSpinner color="yellow" class="w-48 h-48 mr-2"></FwbSpinner>
-        </div>
+      <!-- Loading -->
+      <div v-if="pamongIsLoading" class="flex justify-center items-center mt-24">
+        <FwbSpinner color="yellow" class="w-48 h-48 mr-2"></FwbSpinner>
+      </div>
       <div class="self-center my-10">
         <AparaturDesa :profiles="pamong" />
       </div>
@@ -260,7 +262,7 @@ onMounted(() => {
 <style scoped>
 .parallax {
   background-image: url('/images/cover_landing_page.jpg');
-  min-height: 650px; 
+  min-height: 650px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -273,7 +275,7 @@ onMounted(() => {
   z-index: 1;
 }
 .parallax::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
