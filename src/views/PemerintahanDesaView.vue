@@ -6,7 +6,7 @@
         loading="lazy"
         src="/images/struktur_pemerintahan_butun.png"
         alt="Pemerintah Desa"
-        class="w-4/5 py-12 rounded-[10%]"
+        class="w-4/5 pt-12 rounded-[10%]"
       />
     </div>
   </div>

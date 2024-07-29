@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-4 py-8">
+  <div class="max-w-[75rem] mx-auto px-4 py-8">
     <h1 class="text-4xl font-bold text-yellow-primary mb-8">Data Agama</h1>
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       <Card
@@ -12,7 +12,7 @@
     </div>
     <div class="mt-12">
       <h2 class="text-2xl font-semibold text-center mb-4">Statistik Agama</h2>
-      <div id="chart" class="mx-auto"></div>
+      <div id="chart" class="mx-auto flex justify-center w-[100%]"></div>
     </div>
   </div>
 </template>
@@ -31,7 +31,7 @@ export default {
         { title: 'Islam', count: 5271 },
         { title: 'Kristen', count: 30 },
         { title: 'Katolik', count: 7 },
-        { title: 'Hindu', count: 8 },
+        { title: 'Hindu', count: 8 }
         // { title: 'Budha', count: 999999 },
         // { title: 'Konghucu', count: 0 }
       ]
@@ -47,23 +47,23 @@ export default {
   },
   methods: {
     createChart() {
-      const filteredData = this.religions.filter((d) => d.count > 0) 
+      const filteredData = this.religions.filter((d) => d.count > 0)
       const data = filteredData.map((d) => d.count)
       const labels = filteredData.map(
         (d) => `${d.title}: ${((d.count / d3.sum(data)) * 100).toFixed(1)}% ${d.count} Orang`
       )
 
-      const width = 1200 
+      const width = 1200
       const height = 600
       const margin = 40
 
       const radius = Math.min(width, height) / 2 - margin
 
       const svg = d3
-      .select('#chart')
+        .select('#chart')
         .append('svg')
-        .attr('viewBox', `0 0 ${width} ${height}`) 
-        .attr('preserveAspectRatio', 'xMidYMid meet') 
+        .attr('viewBox', `0 0 ${width} ${height}`)
+        .attr('preserveAspectRatio', 'xMidYMid meet')
         .style('border', '2px solid black')
         .append('g')
         .attr('transform', `translate(${width / 2}, ${height / 2})`)
@@ -80,7 +80,7 @@ export default {
           '#dda0dd',
           '#8a2be2',
           '#7fffd4'
-        ]) 
+        ])
 
       const pie = d3.pie().value((d) => d)
 
@@ -108,12 +108,11 @@ export default {
             const dx = current.x - others[i].x
             const dy = current.y - others[i].y
             const distance = Math.sqrt(dx * dx + dy * dy)
-            if (distance < 50) return true 
+            if (distance < 50) return true
           }
         }
         return false
       }
-
 
       const labelPositions = data_ready.map((d) => {
         const pos = outerArc.centroid(d)
@@ -172,14 +171,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.container {
-  max-width: 1200px;
-}
-#chart {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-</style>

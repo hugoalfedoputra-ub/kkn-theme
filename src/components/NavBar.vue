@@ -15,24 +15,9 @@ const navigation = [
 ]
 
 const mobileMenuOpen = ref(false)
-const hoverIndex = ref(null)
-const hideTimeout = ref(null)
 
 const isActive = (href) => {
   return route.path === href
-}
-
-const isSearchActive = ref(false)
-
-const showSubItems = (index) => {
-  clearTimeout(hideTimeout.value)
-  hoverIndex.value = index
-}
-
-const hideSubItems = () => {
-  hideTimeout.value = setTimeout(() => {
-    hoverIndex.value = null
-  }, 200)
 }
 </script>
 
@@ -48,7 +33,7 @@ const hideSubItems = () => {
         <a href="/" class="flex gap-2 lg:gap-4 justify-center items-center">
           <img
             loading="lazy"
-            src="/public/images/logo_butun.png"
+            src="/images/logo_butun.png"
             class="shrink-0 aspect-square w-10 h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 mb-2 my-1 lg:mb-3"
           />
           <div class="flex flex-col mt-1">
@@ -75,14 +60,8 @@ const hideSubItems = () => {
       </div>
 
       <!-- Desktop Navigation -->
-      <div v-if="!isSearchActive" class="hidden lg:flex lg:gap-x-4 xl:gap-x-7 relative">
-        <div
-          v-for="(item, index) in navigation"
-          :key="item.name"
-          class="relative"
-          @mouseenter="showSubItems(index)"
-          @mouseleave="hideSubItems"
-        >
+      <div class="hidden lg:flex lg:gap-x-4 xl:gap-x-7 relative">
+        <div v-for="(item, index) in navigation" :key="index" class="relative">
           <a
             :href="item.href"
             :class="[
@@ -93,23 +72,6 @@ const hideSubItems = () => {
           >
             {{ item.name }}
           </a>
-          <div
-            v-if="item.subItems && hoverIndex === index"
-            class="absolute left-0 p-4 mt-1 w-48 rounded-md shadow-lg bg-green-primary ring-1 ring-black ring-opacity-5 z-50 font-primary font-semibold"
-            @mouseenter="showSubItems(index)"
-            @mouseleave="hideSubItems"
-          >
-            <div>
-              <a
-                v-for="subItem in item.subItems"
-                :key="subItem.name"
-                :href="subItem.href"
-                class="block px-4 py-2 text-sm text-white hover:bg-yellow-primary hover:text-black rounded-xl"
-              >
-                {{ subItem.name }}
-              </a>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -158,13 +120,7 @@ const hideSubItems = () => {
         </div>
         <div class="mt-6 flow-root px-6">
           <div class="-my-6 divide-y divide-gray-500/10">
-            <div
-              v-for="(item, index) in navigation"
-              :key="item.name"
-              class="space-y-2 py-1"
-              @mouseenter="showSubItems(index)"
-              @mouseleave="hideSubItems"
-            >
+            <div v-for="(item, index) in navigation" :key="index" class="space-y-2 py-1">
               <a
                 :href="item.href"
                 :class="[
@@ -174,23 +130,6 @@ const hideSubItems = () => {
                 ]"
                 >{{ item.name }}
               </a>
-              <div
-                v-if="item.subItems && hoverIndex === index"
-                class="absolute right-0 p-4 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 font-primary font-semibold z-50"
-                @mouseenter="showSubItems(index)"
-                @mouseleave="hideSubItems"
-              >
-                <div>
-                  <a
-                    v-for="subItem in item.subItems"
-                    :key="subItem.name"
-                    :href="subItem.href"
-                    class="block px-4 py-2 text-sm text-black hover:bg-green-primary hover:text-white rounded-xl"
-                  >
-                    {{ subItem.name }}
-                  </a>
-                </div>
-              </div>
             </div>
             <div class="py-6">
               <a

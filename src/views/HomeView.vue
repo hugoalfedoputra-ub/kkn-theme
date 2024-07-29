@@ -192,7 +192,7 @@ onMounted(() => {
       class="justify-end md:px-10 lg:px-20 py-0 md:py-10 w-full bg-white max-md:px-5 max-md:max-w-full"
     >
       <div class="flex gap-5 max-md:flex-col-reverse max-md:gap-0">
-        <div class="flex flex-col px-10 md:items-center w-6/12 md:px-0 max-md:ml-0 max-md:w-full">
+        <div class="flex flex-col md:items-center w-6/12 md:px-0 max-md:ml-0 max-md:w-full">
           <div
             class="flex flex-col justify-center items-start md:px-10 lg:px-20 py-20 mt-1.5 text-base font-semibold text-black max-md:px-5 max-md:mt-10"
           >

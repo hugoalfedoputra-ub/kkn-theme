@@ -92,11 +92,7 @@ const currentPage = ref(1)
 const totalPages = ref(1)
 const searchQuery = ref('')
 
-const pictures = ref([
-  { src: '/public/images/basmi_nyamuk.jpg' },
-  { src: '/public/images/dummy_structure.jpg' },
-  { src: '/public/images/map_butun.png' }
-])
+const pictures = ref([])
 
 const fetchArticles = async (page = 1) => {
   articleIsLoading.value = true
@@ -107,10 +103,13 @@ const fetchArticles = async (page = 1) => {
         search: searchQuery.value
       }
     })
-    console.log(response.data.data)
     articles.value = response.data.data
     totalPages.value = response.data.last_page
     currentPage.value = response.data.current_page
+    articles.value.forEach((article) => {
+      const img = getImg(article.gambar)
+      pictures.value.push({ src: img })
+    })
   } catch (err) {
     error.value = 'Artikel Gagal Dimuat'
   } finally {

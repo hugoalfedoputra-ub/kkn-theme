@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-4 py-8">
+  <div class="max-w-[75rem] mx-auto px-4 py-8">
     <h1 class="text-4xl font-bold text-yellow-primary mb-8">Pendidikan</h1>
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       <statistic-card
@@ -12,7 +12,7 @@
     </div>
     <div class="mt-12">
       <h2 class="text-2xl font-semibold text-center mb-4">Statistik Pendidikan</h2>
-      <div id="chart" class="mx-auto"></div>
+      <div id="chart" class="mx-auto flex justify-center w-[100%]"></div>
     </div>
   </div>
 </template>
@@ -58,8 +58,8 @@ export default {
       const svg = d3
         .select('#chart')
         .append('svg')
-        .attr('viewBox', `0 0 ${width} ${height}`) 
-        .attr('preserveAspectRatio', 'xMidYMid meet') 
+        .attr('viewBox', `0 0 ${width} ${height}`)
+        .attr('preserveAspectRatio', 'xMidYMid meet')
         .style('border', '2px solid black')
         .append('g')
         .attr('transform', `translate(${width / 2}, ${height / 2})`)
@@ -68,7 +68,14 @@ export default {
         .scaleOrdinal()
         .domain(labels)
         .range([
-          '#004F2D', '#4682b4', '#32cd32', '#49ED59', '#EDAE49', '#EE9511', '#EEE16E', '#7fffd4'
+          '#004F2D',
+          '#4682b4',
+          '#32cd32',
+          '#49ED59',
+          '#EDAE49',
+          '#EE9511',
+          '#EEE16E',
+          '#7fffd4'
         ])
 
       const pie = d3.pie().value((d) => d)
@@ -97,7 +104,7 @@ export default {
             const dx = current.x - others[i].x
             const dy = current.y - others[i].y
             const distance = Math.sqrt(dx * dx + dy * dy)
-            if (distance < 50) return true 
+            if (distance < 50) return true
           }
         }
         return false
@@ -150,14 +157,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.container {
-  max-width: 1200px;
-}
-#chart {
-  display: flex; 
-  justify-content: center; 
-  width: 100%; 
-}
-</style>

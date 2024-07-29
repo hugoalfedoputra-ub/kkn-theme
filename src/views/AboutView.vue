@@ -11,11 +11,11 @@
 
 <script>
 import NavBar from '../components/NavBar.vue'
-import FooterComponent from '../components/FooterComponent.vue'
 import ProfileDesa from '../components/ProfileDesa.vue'
 import SejarahDesa from '../components/SejarahDesa.vue'
 import VisiMisi from '../components/VisiMisi.vue'
 import PeraturanDesa from '../components/PeraturanDesa.vue'
+import FooterComponent from '../components/FooterComponent.vue'
 
 export default {
   name: 'App',
