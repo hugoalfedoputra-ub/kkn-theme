@@ -23,8 +23,8 @@ const fetchArticle = async () => {
   articleIsLoading.value = true
   try {
     const response = await axios.get(`${url}artikel/${articleId}`)
-    console.log(`${url}artikel/${articleId}`)
-    console.log(response.data)
+    // console.log(`${url}artikel/${articleId}`)
+    // console.log(response.data)
     article.value = response.data
   } catch (err) {
     error.value = 'Artikel Gagal Dimuat'
