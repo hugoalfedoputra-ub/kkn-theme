@@ -4,20 +4,25 @@
     <div class="flex flex-col min-h-screen">
       <div class="flex py-8 px-10">
         <div class="font-secondary mt-16 mx-auto md:w-[90%] lg:w-[80%] xl:w-[70%]">
-          <h1 class="text-3xl text-yellow-primary text-center font-primary font-bold">
-            Visi dan Misi
-          </h1>
+          <div class="flex flex-col items-center">
+            <h1
+              class="text-4xl text-yellow-primary text-center font-primary font-bold drop-shadow-md"
+            >
+              Visi dan Misi
+            </h1>
+            <div class="mt-2 h-1 w-16 bg-yellow-primary rounded-3xl drop-shadow-lg"></div>
+          </div>
           <div class="my-8 font-secondary">
-            <h2 class="font-bold">Visi</h2>
-            <p class="text-base">
+            <h2 class="font-bold text-xl md:text-2xl">Visi</h2>
+            <p class="text-base md:text-lg">
               {{ visi }}
             </p>
           </div>
           <div class="my-8 font-secondary">
-            <h2 class="font-bold">Misi</h2>
-            <p class="text-base">
+            <h2 class="font-bold text-xl md:text-2xl">Misi</h2>
+            <p class="text-base md:text-lg">
               <span v-for="(item, index) in misi" :key="index">
-                {{ index + 1 }}. {{ item }}<br>
+                {{ index + 1 }}. {{ item }}<br />
               </span>
             </p>
           </div>
@@ -41,15 +46,15 @@ export default {
   },
   data() {
     return {
-      visi: "Terwujudnya Masyarakat Desa Butun yang sejahtera dan mandiri terdepan di bidang pertanian.",
+      visi: 'Mewujudkan Desa Butun yang sejahtera dan mandiri, unggul di bidang pertanian.',
       misi: [
-        "Menerapkan Tata kelola Pemerintah dan Pelayanan Kepada Masyarakat secara transparan menuju Desa yang Mandiri.",
-        "Meningkatkan Pembangunan Infrastruktur yang profisional berkualitas dan berkelanjutan.",
-        "Pengembangan Sarana prasarana olahraga, Pelestarian Seni dan budaya.",
-        "Memberdayakan Kelembagaan masyarakat.",
-        "Meningkatkan Sarana dan Prasarana Umum.",
-        "Membentuk dan Mengembangkan BUMDesa serta penguatan Permodalan.",
-        "Mengoptimalkan sektor pertanian baik tahap produksi maupun tahap pengelolaan hasil."
+        'Menerapkan tata kelola pemerintahan dan pelayanan kepada masyarakat secara transparan untuk menuju desa yang mandiri.',
+        'Meningkatkan pembangunan infrastruktur yang profesional, berkualitas, dan berkelanjutan.',
+        'Mengembangkan sarana dan prasarana olahraga serta melestarikan seni dan budaya.',
+        'Memberdayakan kelembagaan masyarakat.',
+        'Meningkatkan sarana dan prasarana umum.',
+        'Membentuk dan mengembangkan Badan Usaha Milik Desa (BUMDes) serta memperkuat permodalan.',
+        'Mengoptimalkan sektor pertanian baik pada tahap produksi maupun pengelolaan hasil.'
       ]
     }
   }

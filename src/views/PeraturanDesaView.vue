@@ -4,9 +4,14 @@
     <div class="flex flex-col min-h-screen">
       <div class="flex py-8 px-10">
         <div class="font-secondary mt-16 mx-auto md:w-[90%] lg:w-[80%] xl:w-[70%]">
-          <h1 class="text-3xl text-yellow-primary text-center font-primary font-bold">
-            Peraturan Desa
-          </h1>
+          <div class="flex flex-col items-center">
+            <h1
+              class="text-4xl text-yellow-primary text-center font-primary font-bold drop-shadow-md"
+            >
+              Peraturan Desa
+            </h1>
+            <div class="mt-2 h-1 w-16 bg-yellow-primary rounded-3xl drop-shadow-lg"></div>
+          </div>
           <div class="my-8 font-secondary flex justify-center">
             <TabelPeraturan
               :peraturan-desa="peraturanDesa"
