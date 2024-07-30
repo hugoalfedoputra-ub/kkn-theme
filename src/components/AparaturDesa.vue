@@ -97,7 +97,7 @@ autoplay()
 </script>
 
 <template>
-  <section class="relative min-h-fit mx-auto">
+  <section class="relative min-h-fit">
     <div class="flex items-center justify-center">
       <div
         v-for="(aparatur, index) in profiles"

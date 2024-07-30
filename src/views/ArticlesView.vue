@@ -1,6 +1,12 @@
 <template>
   <main class="flex flex-col bg-white">
     <NavBar />
+
+    <!-- Loading -->
+    <div v-if="articleIsLoading" class="min-h-screen flex justify-center items-center mt-6">
+      <FwbSpinner color="yellow" class="w-48 h-48 mr-2" />
+    </div>
+
     <FwbCarousel :pictures slide :slide-interval="2000" />
 
     <div class="self-center mt-14 text-4xl font-bold text-center text-yellow-primary max-md:mt-10">
@@ -14,11 +20,6 @@
         class="mt-4 md:mt-0"
         @dblclick="resetFilters"
       ></SearchInput>
-    </div>
-
-    <!-- Loading -->
-    <div v-if="articleIsLoading" class="min-h-screen flex justify-center items-center mt-6">
-      <FwbSpinner color="yellow" class="w-48 h-48 mr-2"></FwbSpinner>
     </div>
 
     <!-- Empty Section -->

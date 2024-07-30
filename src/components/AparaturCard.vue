@@ -17,12 +17,12 @@ defineProps({
 
 <template>
   <div
-    class="flex flex-col items-center gap-5 bg-white p-5 rounded-xl h-full min-w-[160] max-w-[160px] md:min-w-[250px] md:max-w-[250px]"
+    class="flex gap-5 flex-col justify-center items-between bg-white p-5 rounded-xl h-[28rem] md:h-[32rem] min-w-[250px] max-w-[250px] md:min-w-[300px] md:max-w-[430px]"
   >
     <img :src="imageSrc" :alt="name" class="rounded-xl object-contain" />
-    <div>
-      <p class="text-lg leading-tight text-black font-bold font-primary">{{ name }}</p>
-      <p class="text-xs font-secondary mt-2">{{ position }}</p>
+    <div class="flex flex-col flex-grow">
+      <p class="mt-2 text-md leading-tight text-black font-bold font-primary">{{ name }}</p>
+      <p class="text-sm font-secondary mt-2">{{ position }}</p>
     </div>
   </div>
 </template>

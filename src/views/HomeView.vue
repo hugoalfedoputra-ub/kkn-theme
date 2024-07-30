@@ -97,11 +97,6 @@ onMounted(() => {
         <div
           class="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 w-full min-h-[650px] max-md:px-5 max-md:max-w-full"
         >
-          <img
-            loading="lazy"
-            src="/images/cover_landing_page.jpg"
-            class="object-cover absolute inset-0 size-full brightness-[45%]"
-          />
           <div
             class="flex relative flex-col justify-center px-5 py-2 mt-28 mb-11 max-w-full w-[569px] max-md:px-5 max-md:my-10"
           >
@@ -110,27 +105,31 @@ onMounted(() => {
               src="/images/logo_butun.png"
               class="self-center max-w-full aspect-square w-[100px] md:w-[120px] lg:w-[140px]"
             />
-            <div class="mt-5 text-4xl font-extrabold text-center max-md:text-4xl font-primary">
+            <div
+              class="mt-5 text-4xl font-extrabold text-center max-md:text-4xl font-primary brightness-100"
+            >
               Butun
             </div>
-            <div class="text-xl md:text-2xl self-center font-secondary">
+            <div class="text-xl md:text-2xl self-center font-secondary brightness-100">
               Kec. Gandusari, Kab. Blitar
             </div>
-            <div class="text-xl md:text-2xl self-center font-secondary">Provinsi Jawa Timur</div>
+            <div class="text-xl md:text-2xl self-center font-secondary brightness">
+              Provinsi Jawa Timur
+            </div>
           </div>
         </div>
       </div>
     </section>
     <VideoButun />
     <section
-      class="flex flex-col justify-between px-5 py-10 w-full h-full text-4xl font-bold text-center text-yellow-primary bg-emerald-900 max-md:max-w-full"
+      class="flex flex-col justify-between md:px-5 py-10 w-full h-full text-4xl font-bold text-center text-yellow-primary bg-green-primary max-md:max-w-full"
     >
       <div class="font-primary">Aparatur Desa</div>
       <!-- Loading -->
       <div v-if="pamongIsLoading" class="absolute self-center my-44">
         <FwbSpinner color="yellow" class="w-48 h-48"></FwbSpinner>
       </div>
-      <div class="h-[400px] flex justify-center my-8">
+      <div class="h-[25rem] flex justify-center my-8 overflow-x-hidden">
         <AparaturDesa :profiles="pamong" :profilesLen="pamongLen" />
       </div>
       <div
@@ -278,6 +277,7 @@ onMounted(() => {
   position: relative;
   z-index: 1;
 }
+
 .parallax::before {
   content: '';
   position: absolute;

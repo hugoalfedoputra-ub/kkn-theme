@@ -11,7 +11,7 @@
     </div>
   </div> -->
 
-  <section class="flex flex-col px-16 py-16 max-md:px-5">
+  <section class="flex flex-col px-16 py-16 max-md:px-5 min-h-[100vh]">
     <h1 class="self-center text-4xl font-bold text-center text-yellow-primary max-md:max-w-full">
       Pemerintahan Desa
     </h1>
