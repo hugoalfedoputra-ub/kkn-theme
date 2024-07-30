@@ -5,7 +5,7 @@
       class="flex flex-col justify-center w-full text-3xl font-bold text-black bg-white max-md:max-w-full"
     >
       <div
-        class="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 w-full min-h-[650px] max-md:px-5 max-md:max-w-full"
+        class="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 w-full min-h-[650px] max-md:px-5 max-md:max-w-full animate-fadeDown"
       >
         <img
           loading="lazy"
@@ -17,8 +17,10 @@
     <section class="flex justify-center items-center p-20 bg-white max-md:px-5">
       <div class="flex flex-col md:w-[90%] lg:w-[70%]">
         <div class="flex flex-col self-stretch gap-8">
-          <h2 class="text-4xl font-bold text-yellow-primary max-md:max-w-full">Sejarah Desa</h2>
-          <div class="my-4">
+          <h2 class="text-4xl font-bold text-yellow-primary max-md:max-w-full animate-fadeRight">
+            Sejarah Desa
+          </h2>
+          <div class="my-4 animate-fadeDown">
             <p class="text-base indent-8">
               Cerita ini digali dari keterangan seseorang yang bernama
               <b>“KASAN MURADI”</b> (Alm), oleh <b>“MOELYO SUTJIPTO”</b> (Alm) Yang dahulu Kepala

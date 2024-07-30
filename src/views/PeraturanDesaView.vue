@@ -4,7 +4,7 @@
     <div class="flex flex-col min-h-screen">
       <div class="flex py-8 px-10">
         <div class="font-secondary mt-16 mx-auto md:w-[90%] lg:w-[80%] xl:w-[70%]">
-          <div class="flex flex-col items-center">
+          <div class="flex flex-col items-center animate-fadeDown">
             <h1
               class="text-4xl text-yellow-primary text-center font-primary font-bold drop-shadow-md"
             >
@@ -12,7 +12,7 @@
             </h1>
             <div class="mt-2 h-1 w-16 bg-yellow-primary rounded-3xl drop-shadow-lg"></div>
           </div>
-          <div class="my-8 font-secondary flex justify-center">
+          <div class="my-8 font-secondary flex justify-center animate-fadeUp">
             <TabelPeraturan
               :peraturan-desa="peraturanDesa"
               :nomor-peraturan-desa="nomorPeraturanDesa"
