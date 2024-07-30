@@ -3,7 +3,9 @@
     <div class="w-full max-w-[70rem] max-md:max-w-full">
       <div class="flex gap-10 max-md:flex-col-reverse max-md:gap-0">
         <div class="flex flex-col w-3/5 max-md:ml-0 max-md:w-full">
-          <div class="flex flex-col self-stretch mt-10 text-black max-md:mt-10 max-md:max-w-full">
+          <div
+            class="flex flex-col self-stretch mt-10 text-black max-md:mt-10 max-md:max-w-full animate-fadeDown"
+          >
             <h2 class="text-4xl font-bold text-yellow-primary max-md:max-w-full font-primary">
               Sejarah Desa
             </h2>
@@ -20,7 +22,7 @@
             </a>
           </div>
         </div>
-        <div class="flex flex-col w-[55%] max-md:ml-0 max-md:w-full">
+        <div class="flex flex-col w-[55%] max-md:ml-0 max-md:w-full animate-fadeLeft">
           <img
             loading="lazy"
             src="/images/map_butun.png"

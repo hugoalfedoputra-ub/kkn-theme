@@ -7,14 +7,20 @@
       <FwbSpinner color="yellow" class="w-48 h-48 mr-2" />
     </div>
 
-    <FwbCarousel :pictures slide :slide-interval="2000" />
+    <FwbCarousel :pictures slide :slide-interval="2000" class="animate-fadeIn" />
 
-    <div class="self-center mt-14 text-4xl font-bold text-center text-yellow-primary max-md:mt-10">
+    <div
+      v-if="!articleIsLoading"
+      class="self-center mt-14 text-4xl font-bold text-center text-yellow-primary max-md:mt-10 animate-fadeDown"
+    >
       Berita Desa
     </div>
 
     <!-- Search  -->
-    <div class="pt-8 flex flex-col md:flex-row justify-center items-center">
+    <div
+      v-if="!articleIsLoading"
+      class="pt-8 flex flex-col md:flex-row justify-center items-center animate-fadeDown"
+    >
       <SearchInput
         v-model="searchQuery"
         class="mt-4 md:mt-0"
@@ -43,12 +49,14 @@
         :date="getFirstWord(article.tgl_upload)"
         :href="getUrl(article.id)"
         :src="getImg(article.gambar)"
-        class="mt-3 duration-300 hover:scale-105"
+        class="mt-3 duration-300 hover:scale-105 animate-fadeRight"
       />
     </div>
 
     <!-- Pagination -->
-    <div class="self-center my-8 text-xl font-bold text-yellow-primary max-md:mt-10 font-secondary">
+    <div
+      class="self-center my-8 text-xl font-bold text-yellow-primary max-md:mt-10 font-secondary animate-fadeUp"
+    >
       <button @click="prevPage" :disabled="currentPage === 1" class="mr-2">Previous</button>
 
       <button

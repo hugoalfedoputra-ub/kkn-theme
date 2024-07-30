@@ -12,11 +12,13 @@
   </div> -->
 
   <section class="flex flex-col px-16 py-16 max-md:px-5 min-h-[100vh]">
-    <h1 class="self-center text-4xl font-bold text-center text-yellow-primary max-md:max-w-full">
+    <h1
+      class="self-center text-4xl font-bold text-center text-yellow-primary max-md:max-w-full animate-fadeDown"
+    >
       Pemerintahan Desa
     </h1>
     <div
-      class="flex flex-col flex-wrap justify-center content-center py-20 mt-5 max-md:px-5 max-md:max-w-full"
+      class="flex flex-col flex-wrap justify-center content-center py-20 mt-5 max-md:px-5 max-md:max-w-full animate-fadeUp"
     >
       <!-- Loading -->
       <div v-if="pamongIsLoading" class="flex justify-center items-center mt-24">

@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-[75rem] mx-auto px-4 py-8">
-    <h1 class="text-4xl font-bold text-yellow-primary mb-8">Data Agama</h1>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <h1 class="text-4xl font-bold text-yellow-primary mb-8 animate-fadeRight">Data Agama</h1>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fadeUp">
       <Card
         v-for="(religion, index) in filteredReligions"
         :key="index"
@@ -10,7 +10,7 @@
         class="cursor-pointer"
       />
     </div>
-    <div class="mt-12">
+    <div class="mt-12 animate-fadeLeft">
       <h2 class="text-2xl font-semibold text-center mb-4">Statistik Agama</h2>
       <div id="chart" class="mx-auto flex justify-center w-[100%]"></div>
     </div>
@@ -49,15 +49,11 @@ export default {
     createChart() {
       const filteredData = this.religions.filter((d) => d.count > 0)
       const data = filteredData.map((d) => d.count)
-      const labels = filteredData.map(
-        (d) => `${d.title}: ${((d.count / d3.sum(data)) * 100).toFixed(1)}% ${d.count} Orang`
-      )
+      const labels = filteredData.map((d) => d.title)
 
       const width = 1200
       const height = 600
-      const margin = 40
-
-      const radius = Math.min(width, height) / 2 - margin
+      const margin = { top: 40, right: 20, bottom: 60, left: 60 }
 
       const svg = d3
         .select('#chart')
@@ -65,108 +61,46 @@ export default {
         .attr('viewBox', `0 0 ${width} ${height}`)
         .attr('preserveAspectRatio', 'xMidYMid meet')
         .style('border', '2px solid black')
-        .append('g')
-        .attr('transform', `translate(${width / 2}, ${height / 2})`)
 
-      const color = d3
-        .scaleOrdinal()
-        .domain(labels)
-        .range([
-          '#ff6347',
-          '#4682b4',
-          '#32cd32',
-          '#ff69b4',
-          '#ff7f50',
-          '#dda0dd',
-          '#8a2be2',
-          '#7fffd4'
-        ])
+      const chartWidth = width - margin.left - margin.right
+      const chartHeight = height - margin.top - margin.bottom
 
-      const pie = d3.pie().value((d) => d)
+      const x = d3.scaleBand().domain(labels).range([0, chartWidth]).padding(0.2)
 
-      const data_ready = pie(data)
+      const y = d3
+        .scaleLinear()
+        .domain([0, d3.max(data)])
+        .nice()
+        .range([chartHeight, 0])
 
-      const arc = d3.arc().innerRadius(0).outerRadius(radius)
+      const chart = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`)
 
-      const outerArc = d3
-        .arc()
-        .innerRadius(radius * 1.1)
-        .outerRadius(radius * 1.1)
+      chart.append('g').attr('transform', `translate(0,${chartHeight})`).call(d3.axisBottom(x))
 
-      svg
-        .selectAll('pieces')
-        .data(data_ready)
+      chart.append('g').call(d3.axisLeft(y))
+
+      chart
+        .selectAll('.bar')
+        .data(data)
         .enter()
-        .append('path')
-        .attr('d', arc)
-        .attr('fill', (d, i) => color(labels[i]))
-        .style('opacity', 0.7)
+        .append('rect')
+        .attr('class', 'bar')
+        .attr('x', (d, i) => x(labels[i]))
+        .attr('y', (d) => y(d))
+        .attr('width', x.bandwidth())
+        .attr('height', (d) => chartHeight - y(d))
+        .attr('fill', '#4682b4')
 
-      function checkOverlap(current, others) {
-        for (let i = 0; i < others.length; i++) {
-          if (others[i] !== current) {
-            const dx = current.x - others[i].x
-            const dy = current.y - others[i].y
-            const distance = Math.sqrt(dx * dx + dy * dy)
-            if (distance < 50) return true
-          }
-        }
-        return false
-      }
-
-      const labelPositions = data_ready.map((d) => {
-        const pos = outerArc.centroid(d)
-        const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2
-        pos[0] = radius * 1.15 * (midAngle < Math.PI ? 1 : -1)
-        return { x: pos[0], y: pos[1], angle: midAngle }
-      })
-
-      labelPositions.forEach((pos, i) => {
-        let angle = pos.angle
-        let radius = 1.15
-        while (checkOverlap(pos, labelPositions)) {
-          angle += 0.1 * (pos.angle < Math.PI ? 1 : -1)
-          radius += 0.05
-          pos.x = radius * (-width / 4) * (angle < Math.PI ? 1 : -1)
-          pos.y = radius * (height / 1.5) * Math.sin(angle)
-        }
-      })
-
-      svg
-        .selectAll('lines')
-        .data(data_ready)
-        .enter()
-        .append('polyline')
-        .attr('points', (d) => {
-          const posA = arc.centroid(d)
-          const posB = outerArc.centroid(d)
-          const posC = outerArc.centroid(d)
-          const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2
-          posC[0] = radius * 1.3 * (midAngle < Math.PI ? 1 : -1)
-          return [posA, posB, posC]
-        })
-        .style('fill', 'none')
-        .style('stroke', 'black')
-        .style('stroke-width', 1)
-
-      svg
-        .selectAll('labels')
-        .data(data_ready)
+      chart
+        .selectAll('.label')
+        .data(data)
         .enter()
         .append('text')
-        .attr('dy', '.35em')
-        .text((d, i) => labels[i])
-        .attr('transform', (d) => {
-          const pos = outerArc.centroid(d)
-          const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2
-          pos[0] = radius * 1.35 * (midAngle < Math.PI ? 1 : -1)
-          return `translate(${pos})`
-        })
-        .style('text-anchor', (d) => {
-          const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2
-          return midAngle < Math.PI ? 'start' : 'end'
-        })
-        .style('font-size', 12)
+        .attr('class', 'label')
+        .attr('x', (d, i) => x(labels[i]) + x.bandwidth() / 2)
+        .attr('y', (d) => y(d) - 5)
+        .attr('text-anchor', 'middle')
+        .text((d) => d)
     }
   }
 }

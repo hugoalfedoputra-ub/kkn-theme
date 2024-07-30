@@ -4,7 +4,7 @@
     <div class="flex justify-center items-center font-primary">
       <div class="w-[80%] px-2 py-16 sm:px-0">
         <TabGroup>
-          <TabList class="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
+          <TabList class="flex space-x-1 rounded-xl bg-blue-900/20 p-1 animate-fadeDown">
             <Tab
               v-for="category in Object.keys(categories)"
               as="template"

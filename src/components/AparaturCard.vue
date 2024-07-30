@@ -17,7 +17,7 @@ defineProps({
 
 <template>
   <div
-    class="flex gap-5 flex-col justify-center items-between bg-white p-5 rounded-xl h-[28rem] md:h-[32rem] min-w-[250px] max-w-[250px] md:min-w-[300px] md:max-w-[430px]"
+    class="flex gap-5 flex-col justify-center items-between bg-white p-5 rounded-xl h-[28rem] md:h-[34rem] min-w-[250px] max-w-[250px] md:min-w-[300px] md:max-w-[430px]"
   >
     <img :src="imageSrc" :alt="name" class="rounded-xl object-contain" />
     <div class="flex flex-col flex-grow">

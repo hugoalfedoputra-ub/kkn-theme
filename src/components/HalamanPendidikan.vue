@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-[75rem] mx-auto px-4 py-8">
-    <h1 class="text-4xl font-bold text-yellow-primary mb-8">Pendidikan</h1>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <h1 class="text-4xl font-bold text-yellow-primary mb-8 animate-fadeRight">Pendidikan</h1>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fadeUp">
       <statistic-card
         v-for="(pendidikan, index) in Pendidikan"
         :key="index"
@@ -10,7 +10,7 @@
         class="cursor-pointer"
       />
     </div>
-    <div class="mt-12">
+    <div class="mt-12 animate-fadeLeft">
       <h2 class="text-2xl font-semibold text-center mb-4">Statistik Pendidikan</h2>
       <div id="chart" class="mx-auto flex justify-center w-[100%]"></div>
     </div>

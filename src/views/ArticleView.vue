@@ -99,8 +99,8 @@ onMounted(() => {
       <div
         class="mt-14 text-4xl font-bold text-center text-yellow-primary max-md:mt-10 font-primary"
       >
-        <h1 class="mb-8">{{ article.judul }}</h1>
-        <div class="flex ms-[15%] gap-5">
+        <h1 class="mb-8 animate-fadeUp">{{ article.judul }}</h1>
+        <div class="flex ms-[15%] gap-5 animate-fadeRight">
           <p class="text-[1rem] text-black">Administrator</p>
           <div
             class="flex justify-center item-center self-end my-auto text-sm font-semibold text-yellow-primary"
@@ -112,12 +112,12 @@ onMounted(() => {
 
       <!-- Content -->
       <div
-        class="flex flex-col p-5 mt-8 w-full max-w-[1196px] max-md:mt-10 max-md:max-w-full"
+        class="flex flex-col p-5 mt-8 w-full max-w-[1196px] max-md:mt-10 max-md:max-w-full animate-fadeDown"
         v-html="article.isi"
       ></div>
 
       <!-- Comments Section -->
-      <div v-if="commentsLoaded" class="mt-10 mx-4">
+      <div v-if="commentsLoaded" class="mt-10 mx-4 animate-fadeUp">
         <h2 class="text-2xl font-bold mb-5">Komentar</h2>
         <div v-for="comment in comments" :key="comment.id" class="mb-5 p-4 border rounded">
           <p class="font-bold">{{ comment.owner }}</p>
@@ -126,7 +126,7 @@ onMounted(() => {
         </div>
       </div>
 
-      <div class="bg-gray-100 p-5 my-5 rounded-2xl drop-shadow-2xl">
+      <div class="bg-gray-100 p-5 my-5 rounded-2xl drop-shadow-2xl animate-fadeUp">
         <!-- Comment Form -->
         <form @submit.prevent="submitComment" class="my-10 space-y-4 mx-4">
           <h3 class="text-xl font-bold">Beri Komentar</h3>
