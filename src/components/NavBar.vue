@@ -10,7 +10,7 @@ const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Pemerintahan Desa', href: '/pemerintahan-desa' },
   { name: 'Berita Desa', href: '/berita-desa' },
-  { name: 'Statistik', href: '/statistik' },
+  { name: 'Statistik', href: '/statistik-desa' },
   { name: 'Peta', href: '/peta-desa' }
 ]
 

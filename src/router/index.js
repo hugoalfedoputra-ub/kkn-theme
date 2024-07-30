@@ -82,15 +82,15 @@ const router = createRouter({
       component: () => import('../views/PetaView.vue')
     },
     {
-      path: '/statistik',
+      path: '/statistik-desa',
       name: 'statistik-desa',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/StatistikView.vue')
+      component: () => import('../views/statistik-desaView.vue')
     },
     {
-      path: '/statistik/kependudukan',
+      path: '/statistik-desa/kependudukan',
       name: 'statistik-kependudukan',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
@@ -98,7 +98,7 @@ const router = createRouter({
       component: () => import('../components/HalamanPenduduk.vue')
     },
     {
-      path: '/statistik/agama',
+      path: '/statistik-desa/agama',
       name: 'statistik-agama',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
@@ -106,7 +106,7 @@ const router = createRouter({
       component: () => import('../components/HalamanDataAgama.vue')
     },
     {
-      path: '/statistik/pendidikan',
+      path: '/statistik-desa/pendidikan',
       name: 'statistik-penduduk',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
