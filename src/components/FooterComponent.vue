@@ -4,7 +4,7 @@
   >
     <div class="md:flex text-center md:justify-between max-md:flex-col">
       <p class="text-sm text-white max-md:max-w-full">© 2024 Pemerintah Desa Butun</p>
-      <p class="text-sm text-white max-md:mt-5">E-mail: butun@kominfo.go.id</p>
+      <p class="text-sm text-white max-md:mt-5">E-mail: kantordesabutun@gmail.com</p>
     </div>
   </footer>
 </template>
