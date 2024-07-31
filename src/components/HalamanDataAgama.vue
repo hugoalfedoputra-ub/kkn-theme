@@ -68,14 +68,19 @@ export default {
       const x = d3.scaleBand().domain(labels).range([0, chartWidth]).padding(0.2)
 
       const y = d3
-        .scaleLinear()
-        .domain([0, d3.max(data)])
+        .scaleLog()
+        .domain([1, d3.max(data)])
         .nice()
         .range([chartHeight, 0])
 
       const chart = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`)
 
-      chart.append('g').attr('transform', `translate(0,${chartHeight})`).call(d3.axisBottom(x))
+      chart
+        .append('g')
+        .attr('transform', `translate(0,${chartHeight})`)
+        .call(d3.axisBottom(x))
+        .style('font-size', '16px')
+        .style('font-weight', 'bold')
 
       chart.append('g').call(d3.axisLeft(y))
 
@@ -101,6 +106,8 @@ export default {
         .attr('y', (d) => y(d) - 5)
         .attr('text-anchor', 'middle')
         .text((d) => d)
+        .style('font-size', '20px')
+        .style('font-weight', 'bold')
     }
   }
 }

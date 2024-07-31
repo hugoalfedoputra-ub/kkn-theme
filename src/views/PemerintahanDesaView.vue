@@ -25,7 +25,9 @@
         <FwbSpinner color="yellow" class="w-48 h-48 mr-2"></FwbSpinner>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 animate-fadeDown"
+      >
         <StaffDesaCard
           v-for="(profile, index) in pamong"
           :key="index"

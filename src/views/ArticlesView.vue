@@ -7,7 +7,9 @@
       <FwbSpinner color="yellow" class="w-48 h-48 mr-2" />
     </div>
 
-    <FwbCarousel :pictures slide :slide-interval="2000" class="animate-fadeIn" />
+    <div v-if="articles.length !== 0">
+      <FwbCarousel :pictures slide :slide-interval="2000" class="animate-fadeIn" />
+    </div>
 
     <div
       v-if="!articleIsLoading"
@@ -23,6 +25,7 @@
     >
       <SearchInput
         v-model="searchQuery"
+        @submit.prevent
         class="mt-4 md:mt-0"
         @dblclick="resetFilters"
       ></SearchInput>
@@ -31,9 +34,9 @@
     <!-- Empty Section -->
     <div
       v-if="articlesLoaded && articles.length === 0"
-      class="min-h-screen flex justify-center items-center"
+      class="min-h-screen flex justify-center items-center animate-fadeDown"
     >
-      <div class="flex items-center bg-white p-6 gap-x-4 rounded-lg">
+      <div class="flex items-center bg-white p-6 gap-x-4 rounded-lg animate-fadeDown">
         <ArticleNotFound />
       </div>
     </div>
@@ -127,7 +130,7 @@ const fetchArticles = async (page = 1) => {
   }
 }
 
-const debouncedfetchArticles = debounce(fetchArticles, 300)
+const debouncedfetchArticles = debounce(fetchArticles, 500)
 
 const getFirstWord = (dateString) => {
   return dateString.split(' ')[0]
@@ -143,6 +146,7 @@ const getUrl = (id) => {
 
 const changePage = (page) => {
   if (page !== currentPage.value && page !== '...') {
+    pictures.value = []
     fetchArticles(page)
   }
 }
@@ -150,6 +154,7 @@ const changePage = (page) => {
 // Function to fetch the next page of jobs
 const nextPage = () => {
   if (currentPage.value < totalPages.value) {
+    pictures.value = []
     fetchArticles(currentPage.value + 1)
   }
 }
@@ -157,6 +162,7 @@ const nextPage = () => {
 // Function to fetch the previous page of jobs
 const prevPage = () => {
   if (currentPage.value > 1) {
+    pictures.value = []
     fetchArticles(currentPage.value - 1)
   }
 }
@@ -185,6 +191,7 @@ const paginationRange = computed(() => {
 })
 
 watch(searchQuery, () => {
+  pictures.value = []
   debouncedfetchArticles()
 })
 

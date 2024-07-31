@@ -55,7 +55,7 @@ export default {
         .range([0, height])
         .padding(0.1)
 
-      svg.append('g').call(d3.axisLeft(y))
+      svg.append('g').call(d3.axisLeft(y)).style('font-size', '15px').style('font-weight', 'bold')
 
       svg
         .selectAll('.bar')

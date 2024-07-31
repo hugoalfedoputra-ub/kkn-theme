@@ -106,6 +106,7 @@ onMounted(() => {
             class="flex justify-center item-center self-end my-auto text-sm font-semibold text-yellow-primary"
           >
             {{ article.tgl_upload }}
+            Dibaca {{ article.hit }} kali
           </div>
         </div>
       </div>

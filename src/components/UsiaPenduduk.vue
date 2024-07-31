@@ -154,9 +154,14 @@ export default {
         .range([0, width])
         .padding([0.2])
 
-      svg.append('g').attr('transform', `translate(0,${height})`).call(d3.axisBottom(x))
+      svg
+        .append('g')
+        .attr('transform', `translate(0,${height})`)
+        .call(d3.axisBottom(x))
+        .style('font-size', '16px')
+        .style('font-weight', 'bold')
 
-      const y = d3.scaleLinear().domain([0, 2000]).range([height, 0])
+      const y = d3.scaleLinear().domain([0, 600]).range([height, 0])
 
       svg.append('g').call(d3.axisLeft(y))
 
@@ -200,7 +205,7 @@ export default {
         .attr('x', 25)
         .attr('y', 15)
         .text('Laki-laki')
-        .style('font-size', '14px')
+        .style('font-size', '16px')
         .attr('alignment-baseline', 'middle')
 
       legend
@@ -216,7 +221,7 @@ export default {
         .attr('x', 125)
         .attr('y', 15)
         .text('Perempuan')
-        .style('font-size', '14px')
+        .style('font-size', '16px')
         .attr('alignment-baseline', 'middle')
     }
   }

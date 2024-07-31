@@ -95,6 +95,8 @@ export default {
           const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
           return midangle < Math.PI ? 'start' : 'end'
         })
+        .style('font-size', '18px')
+        .style('font-weight', 'bold')
     }
   }
 }

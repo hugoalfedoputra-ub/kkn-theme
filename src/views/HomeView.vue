@@ -89,7 +89,7 @@ onMounted(() => {
   <NavBar />
   <main>
     <section
-      class="flex flex-col justify-center w-full text-3xl font-semibold text-yellow-primary bg-white max-md:max-w-full font-primary brightness-75 parallax"
+      class="flex flex-col justify-center w-full text-3xl font-semibold text-yellow-primary bg-white max-md:max-w-full font-primary parallax brightness-90"
     >
       <div
         class="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 w-full min-h-[650px] max-md:px-5 max-md:max-w-full"
@@ -98,19 +98,17 @@ onMounted(() => {
           class="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 w-full min-h-[650px] max-md:px-5 max-md:max-w-full"
         >
           <div
-            class="flex relative flex-col justify-center px-5 py-2 mt-28 mb-11 max-w-full w-[569px] max-md:px-5 max-md:my-10 animate-fadeDown"
+            class="flex relative flex-col justify-center px-5 py-2 mt-28 mb-11 max-w-full w-[569px] max-md:px-5 max-md:my-10 animate-fadeDown text-yellow-primary brightness-100"
           >
             <img
               loading="lazy"
               src="/images/logo_butun.png"
               class="self-center max-w-full aspect-square w-[100px] md:w-[120px] lg:w-[140px]"
             />
-            <div
-              class="mt-5 text-4xl font-extrabold text-center max-md:text-4xl font-primary brightness-100"
-            >
+            <div class="mt-5 text-4xl font-extrabold text-center max-md:text-4xl font-primary">
               Butun
             </div>
-            <div class="text-xl md:text-2xl self-center font-secondary brightness-100">
+            <div class="text-xl md:text-2xl self-center font-secondary">
               Kec. Gandusari, Kab. Blitar
             </div>
             <div class="text-xl md:text-2xl self-center font-secondary brightness">
@@ -273,11 +271,6 @@ onMounted(() => {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-}
-
-.parallax-content {
-  position: relative;
-  z-index: 1;
 }
 
 .parallax::before {

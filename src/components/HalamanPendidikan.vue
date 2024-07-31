@@ -152,7 +152,8 @@ export default {
         .text((d, i) => labels[i])
         .attr('transform', (d, i) => `translate(${labelPositions[i].x},${labelPositions[i].y})`)
         .style('text-anchor', (d, i) => (labelPositions[i].x > 0 ? 'start' : 'end'))
-        .style('font-size', 12)
+        .style('font-size', '14px')
+        .style('font-weight', 'bold')
     }
   }
 }
